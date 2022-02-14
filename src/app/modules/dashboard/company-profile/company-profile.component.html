@@ -1,0 +1,77 @@
+<br>
+<h2>{{constants.LABEL_PROFILE}}</h2>
+<form [formGroup]="companyProfile" (ngSubmit)="saveProfile(companyProfile.value)">
+  <mat-tab-group>
+    <mat-tab label="{{constants.LABEL_COMPANY_INFO}}">
+      <div class="form-container col-xs-12 col-sm-12 col-sm-8 col-lg-4 pdl0" style="min-height:500px;">
+        <mat-card>
+            <mat-card-content style="text-align:center">
+              <mat-form-field class="inputWidth">
+                <mat-label>{{constants.PLACEHOLDER_PROFILE_ID}}</mat-label>
+                <input matInput formControlName="profileID" placeholder="{{constants.PLACEHOLDER_PROFILE_ID}}" #name autocomplete="off" maxlength="50" readonly>                
+              </mat-form-field><br>
+              <mat-form-field class="inputWidth">
+                <mat-label>{{constants.PLACEHOLDER_COMPANY_NAME}}</mat-label>
+                <input matInput formControlName="name" placeholder="{{constants.PLACEHOLDER_COMPANY_NAME}}" #name autocomplete="off" maxlength="50">
+                <mat-hint align="start"> </mat-hint>
+                <mat-hint align="end">{{name.value.length}} / 50</mat-hint>
+                <mat-error *ngIf="companyProfile.invalid">{{msgValidateName()}}</mat-error>
+              </mat-form-field><br>
+              <mat-form-field class="inputWidth">
+                <mat-label>{{constants.PLACEHOLDER_EMAIL}}</mat-label>
+                <input matInput formControlName="email" placeholder="{{constants.PLACEHOLDER_EMAIL}}" autocomplete="off" readonly>
+                <mat-icon matSuffix color>email</mat-icon>
+              </mat-form-field><br>
+              <mat-form-field class="inputWidth">
+                <mat-label>{{constants.PLACEHOLDER_PHONE}}</mat-label>
+                <input matInput formControlName="phonehome" placeholder="{{constants.PLACEHOLDER_PHONE}}" autocomplete="off" maxlength="16" (keydown)="checkNumber($event)">
+                <mat-icon matSuffix color>local_phone</mat-icon>
+                <mat-error *ngIf="companyProfile.invalid">{{msgValidatePhoneHome()}}</mat-error>
+              </mat-form-field><br>
+              <mat-form-field class="inputWidth">
+                <mat-label>{{constants.PLACEHOLDER_MOVIL}}</mat-label>
+                <input matInput formControlName="phonecel" placeholder="{{constants.PLACEHOLDER_MOVIL}}" autocomplete="off" maxlength="16" (keydown)="checkNumber($event)">
+                <mat-icon matSuffix color>phone_iphone</mat-icon>
+                <mat-error *ngIf="companyProfile.invalid">{{msgValidateCelPhone()}}</mat-error>
+              </mat-form-field><br>
+              <mat-form-field class="inputWidth">
+                <mat-label>{{constants.PLACEHOLDER_RIC_RUC}}</mat-label>
+                <input matInput formControlName="rifRuc" placeholder="{{constants.PLACEHOLDER_RIC_RUC}}" #rifRuc autocomplete="off" maxlength="50">
+                <mat-error *ngIf="companyProfile.invalid">{{msgValidateRifRuc()}}</mat-error>
+              </mat-form-field><br>
+              <mat-form-field class="inputWidth">
+                <mat-label>{{constants.PLACEHOLDER_WEB}}</mat-label>
+                <input matInput formControlName="web" placeholder="{{constants.PLACEHOLDER_WEB}}" #web autocomplete="off" maxlength="50">
+                <mat-icon matSuffix color>language</mat-icon>
+                <mat-error *ngIf="companyProfile.invalid">{{msgValidateWeb()}}</mat-error>
+              </mat-form-field><br>
+              <div mat-dialog-actions style="clear:both" class="block">
+                  <button mat-raised-button color="primary" type="submit" [disabled]="companyProfile.invalid">{{constants.LABEL_SAVE}}</button>
+              </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-tab>
+    
+    <mat-tab label="{{constants.LABEL_LOGO}}">
+      <div class="form-container col-xs-12 col-sm-12 col-sm-8 col-lg-4 pdl0">
+        <mat-card class="example-card">
+            <mat-card-content style="text-align:center">
+              <br>
+              <div class="avatar-upload">
+                <div class="avatar-edit">
+                  <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" #fileInput (change)="uploadFile($event)" />
+                </div>
+                <div class="avatar-preview">
+                  <div id="imagePreview" [style.backgroundImage]="'url('+ imageUrl +')'">
+                  </div>
+                </div>
+              </div>
+                <button *ngIf="!socialProfile"  mat-raised-button color="primary" type="button" (click)="fileInput.click()">{{constants.LABEL_SELECT_IMAGE}}</button><br><br>
+                <span *ngIf="!socialProfile">{{ constants.LABEL_SIZE_MAX_LOGO}}</span>
+            </mat-card-content>
+        </mat-card><br>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</form>

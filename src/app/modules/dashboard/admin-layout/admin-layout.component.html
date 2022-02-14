@@ -1,0 +1,39 @@
+<app-header></app-header>
+<main class="main_content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <mat-sidenav-container class="example-container">
+          <mat-sidenav #sidenav class="menu">
+            <!-- <p class="text-right"><button mat-button (click)="sidenav.toggle()" class="min-width0"><mat-icon>menu</mat-icon></button></p>-->
+            <mat-list>
+              <mat-list-item *ngFor="let link of MENU_USER" >
+                <button mat-menu-item routerLink="{{link.route}}" *ngIf="link.menu != constants.LABEL_CLOSE_SESION" (click)="sidenav.toggle()">
+                  <mat-icon>{{link.icon}}</mat-icon>
+                  &nbsp;<span>{{link.menu}}</span>
+                </button>
+                <button mat-menu-item (click)="closeSession()" *ngIf="link.menu == constants.LABEL_CLOSE_SESION" >
+                  <mat-icon>{{link.icon}}</mat-icon>
+                  &nbsp;<span>{{link.menu}}</span>
+                </button>
+              </mat-list-item>
+
+             </mat-list>
+          </mat-sidenav>
+          <mat-sidenav-content>
+            <div class="row no-scrollx">
+              <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1  text-left">
+                <button mat-button (click)="sidenav.toggle()" class="min-width0"><mat-icon>menu</mat-icon></button>
+
+              </div>
+              <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
+                <router-outlet></router-outlet>
+              </div>
+          </div>
+          </mat-sidenav-content>
+        </mat-sidenav-container>
+      </div>
+    </div>
+  </div>
+</main>
+<app-footer></app-footer>

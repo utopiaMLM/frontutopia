@@ -1,0 +1,40 @@
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+  color: #d3d3d3 !important;
+  background-color: #3951af !important;
+  border-color: #20278f #20278f #673ab7 !important;
+}
+
+a{
+  color: #0a0e46;
+}
+
+a:hover {
+    color: #0a0e46;
+    text-decoration: none;
+}
+
+.nav-tabs .nav-link{
+  background: white;
+}
+
+.nav-tabs .nav-link:hover{
+  border-color: transparent !important;
+}
+
+.nav-tabs {
+  border-bottom: none !important;
+}
+
+.tab-pane.fade {
+  transition: all 0.2s;
+  transform: translateX(10rem);
+}
+
+.tab-pane.fade.show {
+  transform: translateX(0rem);
+}
+
+.mat-card-content{
+  background: #fff !important;
+}
+

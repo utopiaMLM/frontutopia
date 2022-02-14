@@ -1,0 +1,32 @@
+table {
+    width: 100%;
+}
+
+table tr td{
+  text-align: left;
+}
+
+.div_block{
+  width: 33%;
+  float:left;
+  margin-right: 0px;
+  padding: 10px;
+}
+
+.div_blockchains{
+  min-height:450px;
+}
+
+@media (max-width: 768px) { 
+  .div_block{
+    width: 100%;
+  }  
+  .div_blockchains{
+    min-height:750px;
+  }
+}
+
+.text-config{
+  font-size: 1rem;
+  color: rgba(0,0,0,.87);  
+}

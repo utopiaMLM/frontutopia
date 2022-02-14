@@ -1,0 +1,98 @@
+<app-header></app-header>
+<div class="container-fluid estilo-login pd40" *ngIf="!isSigned">
+  <div class="row">
+    <div class="col-md-4 col-lg-4"></div>
+    <div class="col-md-4 col-lg-4">
+      <div class="form-container" style="text-align: center">
+
+        <mat-card class="example-card">
+          <mat-card-header class="center-block">
+            <mat-card-title class="pd20">{{constants.LABEL_SIGNUP}}</mat-card-title>
+          </mat-card-header><br>
+          <mat-card-content style="text-align:center">
+
+            <form [formGroup]="signUpForm" (ngSubmit)="onSave(signUpForm.value)">
+              <mat-form-field class="inputWidth">
+                <mat-label>{{constants.PLACEHOLDER_EMAIL}}</mat-label>
+                <input matInput formControlName="email" placeholder="{{constants.PLACEHOLDER_EMAIL}}" autocomplete="off">
+                <mat-icon matSuffix color>email</mat-icon>
+                <mat-error *ngIf="signUpForm.invalid">{{msgValidateEmail()}}</mat-error>
+              </mat-form-field><br>
+
+              <mat-form-field class="inputWidth">
+                <mat-label>{{constants.PLACEHOLDER_NAME}}</mat-label>
+                <input matInput formControlName="name" placeholder="{{constants.PLACEHOLDER_NAME}}" autocomplete="off">
+                <mat-error *ngIf="signUpForm.invalid">{{msgValidateName()}}</mat-error>
+              </mat-form-field><br>
+
+              <mat-form-field class="inputWidth">
+                <mat-label>{{constants.PLACEHOLDER_TYPEUSER}}</mat-label>
+                <mat-select formControlName="userType" placeholder="{{constants.PLACEHOLDER_TYPEUSER}}">
+                  <mat-option *ngFor="let userType of userTypeArraySelect" [value]="userType.id">
+                      {{userType.label}}
+                  </mat-option>
+              </mat-select>
+                <mat-error *ngIf="signUpForm.invalid">{{msgValidateRole()}}</mat-error>
+              </mat-form-field><br>
+
+              <mat-form-field class="inputWidth">
+                <mat-label>{{constants.PLACEHOLDER_PASSWORD}}</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" placeholder="{{constants.PLACEHOLDER_PASSWORD}}" #password maxlength="14" autocomplete="off">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-hint align="start"> </mat-hint>
+                <mat-hint align="end">{{password.value.length}} / 14</mat-hint>
+                <mat-error *ngIf="signUpForm.invalid">{{msgValidatePassword()}}</mat-error>
+              </mat-form-field><br><br>
+
+              <mat-form-field class="inputWidth">
+                <mat-label>{{constants.PLACEHOLDER_REPEAT_PASSWORD}}</mat-label>
+                <input matInput [type]="hide1 ? 'password' : 'text'"  formControlName="passwordRepeat" placeholder="{{constants.PLACEHOLDER_REPEAT_PASSWORD}}" #passwordRepeat maxlength="14" autocomplete="off">
+                <button mat-icon-button matSuffix (click)="hide1 = !hide1" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide1">
+                  <mat-icon>{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-hint align="start"> </mat-hint>
+                <mat-hint align="end">{{passwordRepeat.value.length}} / 14</mat-hint>
+                <mat-error *ngIf="signUpForm.invalid">{{msgValidatePasswordRepeat()}}</mat-error>
+              </mat-form-field><br><br>
+                <span class="text-anchor" (click)="openPoliticsDialog()">{{constants.LABEL_PRIVACY_POLITICS}}</span>&nbsp; | <span class="text-anchor" (click)="openTermsDialog();">{{constants.LABEL_TERMS_AND_CONDITIONS}}</span><br><br>
+              <div style="clear:both" class="block">
+                  <button mat-raised-button color="primary" type="submit" [disabled]="signUpForm.invalid">{{constants.LABEL_SIGNUP}}</button>&nbsp;
+                  <button mat-raised-button color="accent" type="button" (click)="close()">{{constants.LABEL_CANCEL}}</button><br>                  
+              </div><br>
+              <span>{{constants.LABEL_HAVE_ACCOUNT}}</span><br>
+              <a routerLink="../{{global.ROUTE_LOGIN}}" class="text-anchor">{{constants.LABEL_AUTH}}</a>
+            </form>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+    <div class="col-md-4 col-lg-4"></div>
+  </div>
+</div>
+
+<div class="container-fluid estilo-login block" *ngIf="isSigned">
+  <div class="row">
+    <div class="col-md-4 col-lg-4"></div>
+    <div class="col-md-4 col-lg-4 text-center">
+      <mat-card class="example-card">
+        <mat-icon matSuffix color="primary" class="icon-big">mail_outline</mat-icon>
+        <mat-card-header class="center-block">          
+          <p class="title_home">{{constants.LABEL_CONFIRM_EMAIL}}</p>
+        </mat-card-header><br> 
+        <mat-card-content style="text-align:justify;padding:20px">
+          <p class="content_home text-center">
+            {{constants.LABEL_CONFIRM_SENT}}<br>
+            {{constants.LABEL_CHECK_EMAIL}} {{constants.LABEL_CHECK_EMAIL2}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <a routerLink="../{{global.ROUTE_LOGIN}}"  class="text-anchor">{{constants.LABEL_AUTH}}</a><br><br>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    <div class="col-md-4 col-lg-4"></div>
+  </div>
+</div>
+<app-footer></app-footer>

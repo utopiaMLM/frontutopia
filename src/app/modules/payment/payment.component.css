@@ -1,0 +1,154 @@
+.mat-card-header .mat-card-title{
+    font-size: 1.6em !important;
+}
+
+.mat-card-header .mat-card-title {
+    color: dimgray;
+}
+.amount_to_pay{
+    font-size: 1.3em !important;
+    margin-left:1.3em;
+}
+
+.amount_to_pay_1{
+    font-size: 1.3em !important; 
+}
+
+.amount_to_pay_2{
+    font-size: 1.2em !important;
+    margin-left:1.3em;
+    font-weight: 500;
+    color: darkblue;    
+}
+
+.font-value {
+    font-size: 1.3em!important;
+    text-decoration: uppercase;
+}
+
+.gray{
+    color: #696969;
+}
+
+
+.price_label{
+    font-size: 1.2em !important;
+    font-weight: 500;
+    color: darkblue;    
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color:#1d1d1d;
+    font-size:1.2em;
+}
+.amount{    
+     font-weight: 600;
+    color:green;    
+}
+.tokens{
+    font-weight: 500;
+    color:darkblue;    
+}
+
+.logo_gateway{
+    padding:10px;    
+}
+
+.payment-div-1{
+    padding-bottom: 20px !important;    
+}
+
+input{
+    color:darkblue;
+}
+
+.input_client{
+    font-size: 1.2em;
+}
+
+.name_store{
+    color:red;
+    font-size: 0.8em;
+}
+
+.div_box{
+    padding-bottom: 10px; 
+}
+
+.seconds{
+    font-size: 0.8em !important;      
+}
+.digits_div{
+    padding-top: 8px;
+}
+
+.colorgray{
+    color: gray;
+}
+
+.titular-span-price{
+    font-size: 1.2em;    
+}
+
+.total-to-send{
+    font-size:2em;
+}
+
+.wallet{
+    font-size:1.5em;
+}
+
+.time-left{
+    font-size:1.3em;
+}
+
+
+@media (max-width: 768px) { 
+    .wallet{
+        font-size:1em;
+    }
+
+    .total-to-send{
+        font-size:1.1em;
+    }
+
+    .time-left{
+        font-size:1.1em;
+    }
+
+    .headerH1Invert {
+        font-weight: 700;
+        font-size: 32px;
+        font-family: 'Poppins', sans-serif;
+        color: #ddd;
+      }
+      .ul-list{
+        padding-top: 20px !important;
+    }
+
+    .font-value{
+        font-size: 1.2em !important;
+    }
+    .btfp{
+        margin-bottom: 10px;
+    }
+}
+
+.divDate{
+    padding-top: 8px;    
+    padding-left: 15px;
+    color: grey;    
+}
+
+.mat-fab.mat-accent[disabled], .mat-fab.mat-primary[disabled], .mat-fab.mat-warn[disabled], .mat-fab[disabled][disabled], .mat-flat-button.mat-accent[disabled], .mat-flat-button.mat-primary[disabled], .mat-flat-button.mat-warn[disabled], .mat-flat-button[disabled][disabled], .mat-mini-fab.mat-accent[disabled], .mat-mini-fab.mat-primary[disabled], .mat-mini-fab.mat-warn[disabled], .mat-mini-fab[disabled][disabled], .mat-raised-button.mat-accent[disabled], .mat-raised-button.mat-primary[disabled], .mat-raised-button.mat-warn[disabled], .mat-raised-button[disabled][disabled] {
+    background-color: rgba(0,0,0,.12);
+    color: rgba(0,0,0,.26);
+}
+
+.padding-one{
+    padding:20px;    
+}
+
+.border-none{
+    border: none !important;
+}

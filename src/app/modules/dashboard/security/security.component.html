@@ -1,0 +1,47 @@
+<br>
+<h2>{{constants.LABEL_SECURITY}}</h2>
+<form [formGroup]="security" (ngSubmit)="onSave(security.value)">
+  <mat-tab-group>
+    <mat-tab label="{{constants.LABEL_PASSWORD}}">
+      <div class="form-container col-xs-12 col-sm-12 col-sm-8 col-lg-4" style="min-height: 500px;">
+        <mat-card class="example-card">
+            <mat-card-content style="text-align:center">
+              <mat-form-field class="inputWidth">
+                <mat-label>{{constants.PLACEHOLDER_OLD_PASSWORD}}</mat-label>
+                <input matInput [type]="hide1 ? 'password' : 'text'" formControlName="oldpassword" placeholder="{{constants.PLACEHOLDER_OLD_PASSWORD}}" #oldpassword maxlength="14" autocomplete="off">
+                <button mat-icon-button matSuffix (click)="hide1 = !hide1" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide1">
+                  <mat-icon>{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-hint align="start"> </mat-hint>
+                <mat-hint align="end">{{oldpassword.value.length}} / 14</mat-hint>
+                <mat-error *ngIf="security.invalid">{{msgValidateOldPassword()}}</mat-error>
+              </mat-form-field><br>
+              <mat-form-field class="inputWidth">
+                <mat-label>{{constants.PLACEHOLDER_NEW_PASSWORD}}</mat-label>
+                <input matInput [type]="hide2 ? 'password' : 'text'" formControlName="newpassword" placeholder="{{constants.PLACEHOLDER_NEW_PASSWORD}}" #newpassword maxlength="14" autocomplete="off">
+                <button mat-icon-button matSuffix (click)="hide2 = !hide2" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide2">
+                  <mat-icon>{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-hint align="start"> </mat-hint>
+                <mat-hint align="end">{{newpassword.value.length}} / 14</mat-hint>
+                <mat-error *ngIf="security.invalid">{{msgValidateNewPassword()}}</mat-error>
+              </mat-form-field><br>
+              <mat-form-field class="inputWidth">
+                <mat-label>{{constants.PLACEHOLDER_REPEAT_PASSWORD}}</mat-label>
+                <input matInput [type]="hide3 ? 'password' : 'text'"  formControlName="passwordRepeat" placeholder="{{constants.PLACEHOLDER_REPEAT_PASSWORD}}" #passwordRepeat maxlength="14" autocomplete="off">
+                <button mat-icon-button matSuffix (click)="hide3 = !hide3" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide3">
+                  <mat-icon>{{hide3 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-hint align="start"> </mat-hint>
+                <mat-hint align="end">{{passwordRepeat.value.length}} / 14</mat-hint>
+                <mat-error *ngIf="security.invalid">{{msgValidatePasswordRepeat()}}</mat-error>
+              </mat-form-field><br><br>
+              <div mat-dialog-actions style="clear:both" class="block">
+                  <button mat-raised-button color="primary" type="submit" [disabled]="security.invalid">{{constants.LABEL_UPDATE}}</button>
+              </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</form>

@@ -1,0 +1,27 @@
+<ng-container *ngIf="showComponent && (componentName == global.ROUTE_DASHBOARD || componentName == global.ROUTE_DASHBOARD_HOME)">
+  <app-home></app-home>
+</ng-container>
+
+<ng-container *ngIf="showComponent && componentName == global.ROUTE_COMPANY_PROFILE">
+  <app-company-profile></app-company-profile>
+</ng-container>
+
+<ng-container *ngIf="showComponent && componentName == global.ROUTE_WALLET">
+  <app-wallet></app-wallet>
+</ng-container>
+
+<ng-container *ngIf="showComponent && componentName == global.ROUTE_PAYMENTS">
+  <app-payments></app-payments>
+</ng-container>
+
+<ng-container *ngIf="showComponent && componentName == global.ROUTE_SECURITY">
+  <app-security></app-security>
+</ng-container>
+
+<ng-container *ngIf="showComponent && componentName == global.ROUTE_CONFIGURATION">
+  <app-configuration></app-configuration>
+</ng-container>
+
+<ng-container *ngIf="showComponent && componentName == global.ROUTE_TRANSACTIONS">
+  <app-transactions></app-transactions>
+</ng-container>

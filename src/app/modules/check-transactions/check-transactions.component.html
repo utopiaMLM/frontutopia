@@ -1,0 +1,182 @@
+<header>    
+  <nav class="navbar navbar-expand-md navbar-dark bd-navbar">
+    
+    <div class="col-lg-1 d-none d-lg-block d-xl-block"></div>
+    <div class="col-sm-lg-12 col-lg-3 pdl0">    
+      <a class="navbar-brand" routerLink="../{{global.ROUTE_HOME}}"><span class="headerH1"><img src="../../assets/tova2.png" class="img-thumbnail border-none" style="height: 115px !important;">TOVAGateway </span></a>
+    </div>
+    
+    <div class="d-xs-block d-sm-block d-md-block d-lg-none d-xl-none col-xs-12 col-sm-12 pd20 pdl0">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+      aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleCollapsed()">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <button mat-icon-button [matMenuTriggerFor]="lang" aria-label="Language">
+        <mat-icon class="icon-profile">language</mat-icon>
+      </button>
+      <mat-menu #lang="matMenu">
+        <button mat-menu-item (click)="changelanguage('en')">
+          <img src="../../assets/GB.svg" style="width:24px; height: 19px;vertical-align:middle;" class="rounded  img-fluid"/>&nbsp;<span>{{constants.LABEL_ENGLISH}}</span>
+        </button>
+        <button mat-menu-item (click)="changelanguage('es')">
+          <img src="../../assets/ES.svg" style="width:24px; height: 19px;vertical-align:middle;" class="rounded  img-fluid"/>&nbsp;<span>{{constants.LABEL_SPANISH}}</span>
+        </button>
+      </mat-menu>
+
+    </div>
+
+    <div class="col-xs-12 col-lg-6  ">    
+      <div id="navbarCollapse" [ngClass]="{'collapse': collapsed, 'navbar-collapse': true}">
+        <ul class="navbar-nav mr-auto ul-navbar">
+          <li class="nav-item">
+            <a class="nav-link list_link" href="{{global.URLBASE_FRONT }}/{{global.ROUTE_CHECK_TRANSACTION}}">{{constants.LABEL_CHECK_TRANSACION}}</a>
+          </li>         
+        </ul>
+
+        <button mat-icon-button [matMenuTriggerFor]="lang" aria-label="Language" class="d-none d-lg-block">
+          <mat-icon class="icon-profile">language</mat-icon>
+        </button>
+        <mat-menu #lang="matMenu">
+          <button mat-menu-item (click)="changelanguage('en')">
+            <img src="../../assets/GB.svg" style="width:24px; height: 19px;vertical-align:middle;" class="rounded  img-fluid"/>&nbsp;<span>{{constants.LABEL_ENGLISH}}</span>
+          </button>
+          <button mat-menu-item (click)="changelanguage('es')">
+            <img src="../../assets/ES.svg" style="width:24px; height: 19px;vertical-align:middle;" class="rounded  img-fluid"/>&nbsp;<span>{{constants.LABEL_SPANISH}}</span>
+          </button>
+        </mat-menu>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div class="container-fluid estilo-login-check"  *ngIf="!transactionFound">
+  <div class="row">
+    <div class="col-md-4 col-lg-4"></div>
+    <div class="col-md-4 col-lg-4">
+      <div class="form-container">
+        <mat-card class="example-card">
+          <mat-card-header class="center-block">
+            <mat-card-title ><h1 class="h3 mb-3 font-weight-normal">{{constants.LABEL_CHECK_TRANSACTION}}</h1></mat-card-title>
+          </mat-card-header><br>
+          <mat-card-content style="text-align:center">
+            <form [formGroup]="transactionForm" >
+              <mat-form-field class="inputWidth">
+                <mat-label>{{constants.LABEL_TRANSACTION_ID}}</mat-label>
+                <input matInput formControlName="transactionId" placeholder="{{constants.LABEL_IDENTIFIER_TRANSACTION}}" autocomplete="off" maxlength="24">
+                <mat-error *ngIf="transactionForm.invalid">{{msgValidateTransactionID()}}</mat-error>
+              </mat-form-field>
+              <div><br><span class='infoform'>* {{constants.LABEL_MSG_TRANSACTION}}</span></div><br>
+              <div style="clear:both" >
+                  <button mat-raised-button color="primary" type="submit" [disabled]="transactionForm.invalid" class="width60" (click)="queryTransaction();">{{constants.LABEL_QUERY}}</button><br>                  
+              </div>
+            </form>
+          </mat-card-content>
+          </mat-card>
+        </div>
+    </div>
+    <div class="col-md-4 col-lg-4"></div>
+  </div>
+</div>
+
+<div class="container-fluid estilo-login"  *ngIf="transactionFound">  
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-sm-12 col-lg-12 pd20 text-center">
+      <span class="total-to-send"><b>{{constants.LABEL_TRANSACTION_ID}}</b>: {{transactionId}}</span>
+    </div>
+  </div>
+
+  <div class="row pd40">      
+
+    <div class="col-lg-2 div_box">
+      <mat-card >                    
+        <mat-card-header class="center-block">
+          <mat-card-title >{{constants.LABEL_STORE_DATA}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+        <br><span class="name_store">{{storeName}}</span><br><br>
+        <a href="{{web}}">{{storeWeb}}</a><br>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+
+    <div class="col-lg-3 div_box">
+      <mat-card class="example-card pdb20">
+        <mat-card-header class="center-block">
+          <mat-card-title >{{constants.LABEL_CLIENT_DATA}}</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content style="text-align:center">
+          <div class="row pd8">
+            <div class="col-sm-2 col-lg-3 label_data">{{constants.LABEL_NAME}}</div>
+            <div class="col-sm-10 col-lg-8 text-left label_data_2">{{clientName}}</div>
+          </div>       
+          <div class="row pd8">
+            <div class="col-sm-2 col-lg-3 label_data">{{constants.PLACEHOLDER_EMAIL}}</div>
+            <div class="col-sm-10 col-lg-8 text-left label_data_2">{{clientEmail}}</div>
+          </div> 
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="col-lg-4 div_box">
+      <mat-card class="example-card pdb20">
+        <mat-card-header class="center-block">
+          <mat-card-title >{{constants.LABEL_TRANSACTION_DATA}}</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content style="text-align:center">
+          <div class="row pd8">
+            <div class="col-sm-3 col-lg-3  label_data">{{constants.LABEL_CREATION_DATE}}</div>
+            <div class="col-sm-8 col-lg-8 text-left label_data_2">{{creationDate}}</div>
+          </div>       
+          <div class="row pd8">
+            <div class="col-sm-3 col-lg-3 label_data">{{constants.LABEL_CRYPTO_TO_SEND}}</div>
+            <div class="col-sm-8 col-lg-8 text-left label_data_2">{{cryptoToSend}}</div>
+          </div> 
+          <div class="row pd8">
+            <div class="col-sm-3 col-lg-3 label_data">{{constants.LABEL_WALLET_TRANSACTION}}</div>
+            <div class="col-sm-8 col-lg-8 text-left label_data_2">{{transactionWallet}}</div>
+          </div>  
+          <div class="row pd8">
+            <div class="col-sm-3 col-lg-3 label_data">{{constants.LABEL_AMOUNT_PAY}}</div>
+            <div class="col-sm-8 col-lg-8 text-left label_data_2">${{amount}}</div>
+          </div> 
+          <div class="row pd8" *ngIf="description!=null">
+            <div class="col-sm-3 col-lg-3 label_data" >{{constants.LABEL_DESCRIPTION}}</div>
+            <div class="col-sm-8 col-lg-8 text-left label_data_2">{{description}}</div>
+          </div> 
+        </mat-card-content>
+
+      </mat-card>
+    </div>
+
+    <div class="col-lg-3 div_box">      
+      <mat-card class="example-card pdb20">
+        <mat-card-header class="center-block">
+          <mat-card-title >{{constants.LABEL_STATUS_TRANSACTION}}</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content style="text-align:center">
+
+          <div class="row pd8">
+            <div class="col-sm-3 col-lg-4  label_data">{{constants.LABEL_PROCESS_ON}}</div>
+            <div class="col-sm-8 col-lg-7 text-left label_data_2">{{processdate}}</div>
+          </div>  
+
+          <div class="row pd8">
+            <div class="col-lg-12 label_data text-center">              
+              <button mat-raised-button color="{{textColor}}" type="button" >{{statusTransaction}}</button>   
+            </div>          
+          </div>              
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  <div class="row pd40">      
+    <div class="col-lg-12 div_box text-center">
+      <button mat-raised-button color="primary" type="button" (click)="checkAnother();">{{constants.LABEL_CHECK_ANOTHER}}</button>
+    </div>
+  </div>  
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,12 @@
+<div mat-dialog-content class="text-center">
+  <p>{{question}}</p>
+</div>
+<div class="row">
+  <div class="col-12 pd10 text-center">
+    <button mat-button (click)="onNoClick()">{{constants.LABEL_QUESTION_NO}}</button>&nbsp;&nbsp;
+    <button mat-button (click)="doCreate()" cdkFocusInitial *ngIf="type === 'create'" class="yellow">{{constants.LABEL_QUESTION_YES}}</button>
+    <button mat-button (click)="doAnul()" cdkFocusInitial *ngIf="type === 'anul'"  class="yellow">{{constants.LABEL_QUESTION_YES}}</button>
+  </div>
+</div>
+
+

@@ -1,0 +1,25 @@
+<app-header></app-header>
+<div class="container-fluid estilo-login block">
+  <div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+      <mat-card class="example-card">
+        <mat-icon matSuffix color="primary" class="icon-big {{color}}">{{icon}}</mat-icon>
+        <mat-card-header class="center-block">
+          <p class="title_home">{{title}}</p>
+        </mat-card-header>
+        <mat-card-content style="text-align:justify;padding:20px">
+          <p class="content_home text-center">
+            {{message1}}<br>
+            {{message2}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <a routerLink="../{{global.ROUTE_LOGIN}}" class="text-anchor">{{constants.LABEL_AUTH}}</a><br><br>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    <div class="col-lg-4"></div>
+  </div>
+</div>
+<app-footer></app-footer>

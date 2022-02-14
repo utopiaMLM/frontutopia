@@ -1,0 +1,27 @@
+.example-container {
+  position: relative;
+  min-height:650px !important;
+  padding: 0px;
+  margin: 0px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.menu{
+  min-width:165px !important;
+}
+
+.row{
+  max-width: 100%;
+  margin-right: 0px !important;
+  margin-left: 0px !important;
+}
+.container-fluid{
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+}
+.min-width0{
+  min-width: 0px !important;
+}

@@ -1,0 +1,71 @@
+
+.label_data{
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.label_data_2{
+    font-size: 1.2em;
+    font-weight: normal;
+}
+
+.label_data_{
+    font-size: 1.3em;
+    font-weight: 500;
+}
+
+.label_data_2_{
+    font-size: 1.3em;
+    font-weight: normal;
+}
+
+.pd8{
+    padding-top: 18px !important;
+}
+
+.pd4{
+    padding-top: 4px !important;
+}
+
+.mat-green{
+    background-color: #00ae3d;
+    color: white;
+}
+
+.mat-yellow{
+    background-color: #f8eb00;
+    color: black;
+}
+
+.mat-blue{
+    background-color: #116bb9;
+    color: white;
+}
+
+.mat-red{
+    background-color: #c73c3c;
+    color: white;
+}
+
+.mat-orange{
+    background-color: #e07115;
+    color: white;
+}
+.estilo-login-check{
+    text-align: center !important;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color:#eceff2 !important
+  }
+
+  .pd-10{
+      position: bottom;
+      bottom: -100px;
+      
+  }
+
+  .mat-card:not([class*=mat-elevation-z]){
+      border: 1px solid #535353 !important;
+  }

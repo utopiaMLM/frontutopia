@@ -1,0 +1,105 @@
+<header>    
+  <nav class="navbar navbar-expand-md navbar-dark bd-navbar">
+    
+    <div class="col-lg-1 d-none d-lg-block d-xl-block"></div>
+    <div class="col-sm-lg-12 col-lg-3 pdl0">    
+      <a class="navbar-brand" routerLink="../{{global.ROUTE_HOME}}"><span class="headerH1"><img src="../../assets/tova2.png" class="img-thumbnail border-none" style="height: 115px !important;">TOVAGateway </span></a>
+    </div>
+    
+    <div class="d-xs-block d-sm-block d-md-block d-lg-none d-xl-none col-xs-12 col-sm-12 pd20 pdl0">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+      aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleCollapsed()">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <button mat-icon-button [matMenuTriggerFor]="lang" aria-label="Language">
+        <mat-icon class="icon-profile">language</mat-icon>
+      </button>
+      <mat-menu #lang="matMenu">
+        <button mat-menu-item (click)="changelanguage('en')">
+          <img src="../../assets/GB.svg" style="width:24px; height: 19px;vertical-align:middle;" class="rounded  img-fluid"/>&nbsp;<span>{{constants.LABEL_ENGLISH}}</span>
+        </button>
+        <button mat-menu-item (click)="changelanguage('es')">
+          <img src="../../assets/ES.svg" style="width:24px; height: 19px;vertical-align:middle;" class="rounded  img-fluid"/>&nbsp;<span>{{constants.LABEL_SPANISH}}</span>
+        </button>
+      </mat-menu>
+
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Profile">
+        <mat-icon class="icon-profile">account_circle</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item  routerLink="../{{global.ROUTE_DASHBOARD}}" *ngIf="isLoggedIn()">
+          <mat-icon>dashboard</mat-icon>
+          <span>{{constants.LABEL_GO_TO_PANEL}}</span>
+        </button>
+        <button mat-menu-item (click)="closeSession()" *ngIf="isLoggedIn()">
+          <mat-icon>power_settings_new</mat-icon>
+          <span>{{constants.LABEL_CLOSE_SESION}}</span>
+        </button>
+        <button mat-menu-item routerLink="../{{global.ROUTE_LOGIN}}" *ngIf="!isLoggedIn()">
+          <mat-icon>https</mat-icon>
+          <span>{{constants.LABEL_AUTH}}</span>
+        </button>
+        <button mat-menu-item routerLink="../{{global.ROUTE_SIGNUP}}" *ngIf="!isLoggedIn()">
+          <mat-icon>person_add</mat-icon>
+          <span>{{constants.LABEL_SIGNUP}}</span>
+        </button>
+      </mat-menu>
+    </div>
+
+    <div class="col-xs-12 col-lg-6  ">    
+      <div id="navbarCollapse" [ngClass]="{'collapse': collapsed, 'navbar-collapse': true}">
+        <ul class="navbar-nav mr-auto ul-navbar">
+          <li class="nav-item">
+            <a class="nav-link list_link" routerLink="../{{global.ROUTE_HOME}}">{{constants.LABEL_HOME}}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link list_link" routerLink="../{{global.ROUTE_HOW_IT_WORK}}">{{constants.LABEL_HOWITWORK}}</a>
+          </li>        
+          <!--<li class="nav-item">
+            <a class="nav-link list_link" routerLink="../{{global.ROUTE_CONTACT}}">{{constants.LABEL_CONTACT}}</a>
+          </li>-->
+          <li class="nav-item" *ngIf="isLoggedIn()">
+            <a class="nav-link list_link" routerLink="../{{global.ROUTE_DASHBOARD}}">{{constants.LABEL_GO_TO_PANEL}}</a>
+          </li>
+          <li class="nav-item" *ngIf="!isLoggedIn()">
+            <a class="nav-link list_link" routerLink="../{{global.ROUTE_LOGIN}}">{{constants.LABEL_AUTH}}</a>
+          </li>
+        </ul>
+
+        <button mat-icon-button [matMenuTriggerFor]="lang" aria-label="Language" class="d-none d-lg-block">
+          <mat-icon class="icon-profile">language</mat-icon>
+        </button>
+        <mat-menu #lang="matMenu">
+          <button mat-menu-item (click)="changelanguage('en')">
+            <img src="../../assets/GB.svg" style="width:24px; height: 19px;vertical-align:middle;" class="rounded  img-fluid"/>&nbsp;<span>{{constants.LABEL_ENGLISH}}</span>
+          </button>
+          <button mat-menu-item (click)="changelanguage('es')">
+            <img src="../../assets/ES.svg" style="width:24px; height: 19px;vertical-align:middle;" class="rounded  img-fluid"/>&nbsp;<span>{{constants.LABEL_SPANISH}}</span>
+          </button>
+        </mat-menu>
+
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Profile" class="d-none d-lg-block">
+        <mat-icon class="icon-profile">account_circle</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item  routerLink="../{{global.ROUTE_DASHBOARD}}" *ngIf="isLoggedIn()">
+            <mat-icon>dashboard</mat-icon>
+            <span>{{constants.LABEL_GO_TO_PANEL}}</span>
+          </button>
+          <button mat-menu-item (click)="closeSession()" *ngIf="isLoggedIn()">
+            <mat-icon>power_settings_new</mat-icon>
+            <span>{{constants.LABEL_CLOSE_SESION}}</span>
+          </button>
+          <button mat-menu-item routerLink="../{{global.ROUTE_LOGIN}}" *ngIf="!isLoggedIn()">
+            <mat-icon>https</mat-icon>
+            <span>{{constants.LABEL_AUTH}}</span>
+          </button>
+          <button mat-menu-item routerLink="../{{global.ROUTE_SIGNUP}}" *ngIf="!isLoggedIn()">
+            <mat-icon>person_add</mat-icon>
+            <span>{{constants.LABEL_SIGNUP}}</span>
+          </button>
+        </mat-menu>
+      </div>
+    </div>
+  </nav>
+</header>

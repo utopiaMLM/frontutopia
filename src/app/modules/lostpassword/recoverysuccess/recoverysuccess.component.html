@@ -1,0 +1,25 @@
+<app-header></app-header>
+<div class="container-fluid estilo-login  block">
+  <div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+      <mat-card class="example-card">
+        <mat-icon matSuffix color="primary" class="icon-big">mail_outline</mat-icon>
+        <mat-card-header class="center-block">          
+          <p class="title_home">{{constants.LABEL_PASSWD_RECOVERED}}</p>
+        </mat-card-header>
+        <mat-card-content style="text-align:justify;padding:20px">
+          <p class="content_home text-center">
+            {{constants.LABEL_CONFIRM_SENT2}}<br>
+            {{constants.LABEL_CHECK_EMAIL3}} {{constants.LABEL_CHECK_EMAIL4}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <a href="../{{constants.ROUTE_LOGIN}}"  class="text-anchor">{{constants.LABEL_BACK_LOGIN}}</a><br><br>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    <div class="col-lg-4"></div>
+  </div>
+</div>
+<app-footer></app-footer>

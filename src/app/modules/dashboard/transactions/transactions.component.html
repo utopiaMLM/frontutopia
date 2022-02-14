@@ -1,0 +1,56 @@
+<br><h2>{{constants.LABEL_TRANSACTIONS}}</h2>
+
+<p-table [value]="transactions" responsiveLayout="scroll" [paginator]="true" [rows]="8" totalRecords="totalRecords" pageLinks="5"  [responsive]="true" autoLayout="true"
+Key="code" [rowHover]="true" [showCurrentPageReport]="true"  currentPageReportTemplate=" {first} to {last} of {totalRecords} "
+    [filterDelay]="0" [globalFilterFields]="['date','amount','cryptotosend','status','blockchain']">
+    <ng-template pTemplate="header">
+        <tr>
+            <th pSortableColumn="creationDate">
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    {{constants.LABEL_DATE}}
+                    <p-sortIcon field="creationDate"></p-sortIcon>
+                </div>
+            </th>
+
+            <th pSortableColumn="amount">
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    {{constants.LABEL_AMOUNT_PAY}}
+                    <p-sortIcon field="amount"></p-sortIcon>
+                    <p-columnFilter type="numeric" field="amount" display="menu" class="p-ml-auto"></p-columnFilter>
+                </div>
+            </th>
+
+            <th pSortableColumn="cryptoToSend">
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    {{constants.LABEL_CRYPTO_TO_SEND}}
+                    <p-sortIcon field="cryptoToSend"></p-sortIcon>
+                </div>
+            </th>
+            <th pSortableColumn="blockchain">
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    {{constants.LABEL_BLOCKCHAIN }}
+                    <p-sortIcon field="blockchain"></p-sortIcon>
+                    <p-columnFilter type="text" field="blockchainSymbol" display="menu" class="p-ml-auto"></p-columnFilter>
+                </div>
+            </th>     
+            <th pSortableColumn="status">
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    {{constants.LABEL_STATUS}}
+                    <p-sortIcon field="status"></p-sortIcon>
+                    <p-columnFilter type="text" field="status" display="menu" class="p-ml-auto"></p-columnFilter>
+                </div>
+            </th>
+            <th>  {{constants.LABEL_ACTION}}</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-trans>
+        <tr>
+            <td>{{trans.creationDate}}</td>
+            <td>${{trans.amount}}</td>
+            <td>{{trans.cryptoToSend}}</td>
+            <td>{{trans.blockchainSymbol  | uppercase  }}</td>
+            <td>{{trans.status}}</td>            
+            <td><button mat-raised-button color="primary" type="button" (click)="viewDetails(trans)">{{constants.LABEL_VIEW_DETAILS}}</button></td>
+        </tr>
+    </ng-template>
+</p-table>

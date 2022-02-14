@@ -1,0 +1,49 @@
+<footer >
+  <nav class="bd-navbar footer-lungwort">
+    <div class="container">
+      <div class="row" style="width: 100% !important;">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-2 pdl30 d-none d-sm-block">
+              
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+            <div class="widget-item">
+                <h5 class="widget-title">{{constants.LABEL_RESOURCES}}</h5>
+                <ul class="widget-links">
+                    <li><a routerLink="../{{global.ROUTE_TERMS}}" class="link_footer">{{constants.LABEL_TERMS_AND_CONDITIONS}}</a></li>
+                    <li><a routerLink="../{{global.ROUTE_PRIVACY}}" class="link_footer">{{constants.LABEL_PRIVACY_POLITICS}}</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 pdt20">
+            <div class="widget-item">
+                <h5 class="widget-title">{{constants.LABEL_LINKS}}</h5>
+                <ul class="widget-links">
+                    <li><a routerLink="../{{global.ROUTE_HOME}}" class="link_footer">{{constants.LABEL_HOME}}</a></li>                    
+                    <li><a routerLink="../{{global.ROUTE_HOW_IT_WORK}}" class="link_footer">{{constants.LABEL_HOWITWORK}}</a></li>                 
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 pdt20">
+            <div class="widget-item">
+                <div class="widget-about">
+                  <a class="navbar-brand" routerLink="../{{global.ROUTE_HOME}}"><span class="headerH2">TovaGateway </span></a>
+                  <ul class="social">
+                    <li><a href="#" target="_blank"><i class="fa fa-facebook-f"></i></a></li>
+                    <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                    <li><a href="#" target="_blank"><i class="fa fa-paper-plane"></i></a></li>
+                  </ul>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <nav class="bd-navbar footer-lungwort-2">
+    <div class="row text-center" style="width: 100% !important;">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+        <p class="text-info-sg">&copy; TovaGateway 2020-{{year}}.</p>
+      </div>
+     </div>
+  </nav>
+</footer>

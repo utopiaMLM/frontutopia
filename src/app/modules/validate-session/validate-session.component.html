@@ -1,0 +1,11 @@
+<ng-container *ngIf="showComponent && componentName === global.ROUTE_LOGIN">
+  <app-login></app-login>
+</ng-container>
+
+<ng-container *ngIf="showComponent && componentName === global.ROUTE_PASSWORDRECOVERY">
+  <app-lostpassword></app-lostpassword>
+</ng-container>
+
+<ng-container *ngIf="showComponent && componentName === global.ROUTE_SIGNUP">
+  <app-signup></app-signup>
+</ng-container>

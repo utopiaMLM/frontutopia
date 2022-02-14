@@ -1,0 +1,79 @@
+<app-header></app-header>
+<div class="container-fluid estilo-login pd80" *ngIf="!isAuthenticated">
+  <div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+      <div class="form-container" style="text-align: center">
+        <mat-card class="example-card">
+          <mat-card-header class="center-block">
+            <mat-card-title class="pd20">{{constants.LABEL_AUTH}}</mat-card-title>
+          </mat-card-header><br>
+          <mat-card-content style="text-align:center">
+            <form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm.value)">
+              <!--<img class="img-fluid" src="../../assets/logo-white2x.png">-->
+
+              <mat-form-field class="inputWidth">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" placeholder="Email address" autocomplete="off">
+                <mat-icon matSuffix color>email</mat-icon>
+                <mat-error *ngIf="loginForm.invalid">{{msgValidateEmail()}}</mat-error>
+              </mat-form-field><br>
+
+              <mat-form-field class="inputWidth">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" formControlName="password" placeholder="Password" #password maxlength="14" autocomplete="off">
+                <mat-icon matSuffix color>vpn_key</mat-icon>
+                <mat-hint align="start"> </mat-hint>
+                <mat-hint align="end">{{password.value.length}} / 14</mat-hint>
+                <mat-error *ngIf="loginForm.invalid">{{msgValidatePassword()}}</mat-error>
+              </mat-form-field><br><br>
+              <a routerLink="../{{global.ROUTE_PASSWORDRECOVERY}}" class="text-anchor">{{constants.LABEL_LOSTPASSWORD}}</a><br><br>
+              <div style="clear:both" >
+                  <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid" class="width60">{{constants.LABEL_ENTER}}</button><br>                  
+              </div><br>
+              <span>{{constants.LABEL_NOT_HAVE_ACCOUNT}}</span><br>
+              <a routerLink="../{{global.ROUTE_SIGNUP}}" class="text-anchor">{{constants.LABEL_CREATE_ACCOUNT}}</a>
+            </form>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+    <div class="col-lg-4"></div>
+  </div>
+</div>
+
+<div class="container-fluid estilo-login pd40" *ngIf="isAuthenticated">
+  <div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+      <div class="form-container" style="text-align: center">
+        <mat-card class="example-card">
+          <mat-card-header class="center-block">
+            <mat-card-title class="pd20">{{constants.LABEL_ENTER_CODE}}</mat-card-title>
+          </mat-card-header><br>
+          <mat-card-content style="text-align:center">
+            <form [formGroup]="codeForm" (ngSubmit)="onLoginCode(codeForm.value)">
+              <mat-form-field class="inputWidth">
+                <mat-label>CODE</mat-label>
+                <input matInput  (keydown)="checkNumber($event);" formControlName="code" placeholder="Code" autocomplete="off" maxlength="5">                      
+                <mat-error *ngIf="codeForm.invalid">{{msgValidateCode()}}</mat-error>                
+              </mat-form-field><br>              
+              <div style="clear:both" >
+                <button mat-raised-button color="primary" type="submit" [disabled]="codeForm.invalid" class="width60">{{constants.LABEL_SEND}}</button><br>                  
+            </div><br>
+            <span>{{constants.LABEL_TEXT_CODE}}</span>                                
+            <!--<hr><br>
+              <span>{{constants.LABEL_NOT_HAVE_CODE}}</span><br>
+              <a routerLink="../{{global.ROUTE_SIGNUP}}" class="text-anchor">{{constants.LABEL_RESEND_CODE}}</a>-->
+            </form>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+    <div class="col-lg-4"></div>
+  </div>
+</div>
+<app-footer></app-footer>
+
+
+

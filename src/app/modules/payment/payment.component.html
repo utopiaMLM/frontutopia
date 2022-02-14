@@ -1,0 +1,207 @@
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark bd-navbar">
+      <div class="col-lg-1 d-none d-lg-block d-xl-block"></div>
+      <div class="col-sm-lg-12 col-lg-3 pdl0">    
+        <a class="navbar-brand" routerLink="../{{global.ROUTE_HOME}}"><span class="headerH1"><img src="../../assets/tova2.png" class="img-thumbnail border-none" style="height: 115px !important;">TOVAGateway </span></a>
+      </div>
+  
+      <button mat-icon-button [matMenuTriggerFor]="lang" aria-label="Language" class="d-block d-sm-none">
+        <mat-icon class="icon-profile">language</mat-icon>
+       </button>
+       <mat-menu #lang="matMenu">
+        <button mat-menu-item (click)="changelanguage('en')">
+          <img src="../../assets/GB.svg" style="width:24px; height: 19px;vertical-align:middle;" class="rounded  img-fluid"/>&nbsp;<span>{{constants.LABEL_ENGLISH}}</span>
+        </button>
+        <button mat-menu-item (click)="changelanguage('es')">
+          <img src="../../assets/ES.svg" style="width:24px; height: 19px;vertical-align:middle;" class="rounded  img-fluid"/>&nbsp;<span>{{constants.LABEL_SPANISH}}</span>
+        </button>
+      </mat-menu>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+       aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleCollapsed()">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="navbarCollapse" [ngClass]="{'collapse': collapsed, 'navbar-collapse': true}">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link list_link" href="{{global.URLBASE_FRONT }}/{{global.ROUTE_CHECK_TRANSACTION}}">{{constants.LABEL_CHECK_TRANSACION}}</a>
+          </li> 
+        </ul>
+  
+        <button mat-icon-button [matMenuTriggerFor]="lang" aria-label="Language" class="d-none d-sm-block">
+          <mat-icon class="icon-profile">language</mat-icon>
+         </button>
+         <mat-menu #lang="matMenu">
+          <button mat-menu-item (click)="changelanguage('en')">
+            <img src="../../assets/GB.svg" style="width:24px; height: 19px;vertical-align:middle;" class="rounded  img-fluid"/>&nbsp;<span>{{constants.LABEL_ENGLISH}}</span>
+          </button>
+          <button mat-menu-item (click)="changelanguage('es')">
+            <img src="../../assets/ES.svg" style="width:24px; height: 19px;vertical-align:middle;" class="rounded  img-fluid"/>&nbsp;<span>{{constants.LABEL_SPANISH}}</span>
+          </button>
+        </mat-menu>
+      </div>
+    </nav>
+  </header>
+  
+<form [formGroup]="paymentForm" >
+    <div class="container-fluid estilo-login block" *ngIf="!isError && !transactionDone"> 
+    <div class="row">      
+      <div class="col-lg-3 div_box">
+        
+        <mat-card >                    
+          <mat-card-header class="center-block">
+            <mat-card-title >{{constants.PLACEHOLDER_DESCRIPTION}}</mat-card-title>
+            <img src="../../assets/logo-05.png" style="max-width: 150px;max-height: 150px;">
+          </mat-card-header>
+          <mat-card-content>
+          <h1><span class="name_store">America de cali Token (AMEC)</span></h1>
+          <h2 class="gray">1 AMEC = ${{tokenPrice}}</h2>
+          <h2  class="gray">{{amount}} AMEC {{constants.LABEL_BOUGHT}}</h2>
+          <div class="col-xs-12 col-sm-12 col-sm-12 col-lg-12 pd10 text-center">
+            <span class="font-value"><b>{{constants.LABEL_VALUE_TO_PAY | uppercase}}</b>: ${{totalAmount}} </span><br><br>
+          </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <div class="col-lg-4 div_box">
+        <mat-card class="example-card">
+          <mat-card-header class="center-block">
+            <mat-card-title >{{constants.LABEL_CLIENT_DATA}}</mat-card-title>
+          </mat-card-header><br>
+
+          <mat-card-content style="text-align:center">
+            <span class="amount_to_pay">
+                <mat-form-field class="inputWidth">              
+                  <mat-label>{{constants.LABEL_NAME_CLIENT}}</mat-label>
+                  <input matInput formControlName="name" placeholder="{{constants.LABEL_NAME}}" autocomplete="off"  matTooltip="{{constants.LABEL_INTRO_NAME}}" matTooltipPosition="above">
+                  <mat-error *ngIf="paymentForm.invalid">{{msgValidateName()}}</mat-error>
+                </mat-form-field>
+            </span>
+          </mat-card-content>      
+
+          <mat-card-content style="text-align:center">
+            <span class="amount_to_pay">
+              <mat-form-field class="inputWidth">              
+                <mat-label>{{constants.PLACEHOLDER_CLIENT_EMAIL}}</mat-label>
+                <input matInput formControlName="email" placeholder="{{constants.PLACEHOLDER_EMAIL}}" autocomplete="off" matTooltip="{{constants.LABEL_INTRO_EMAIL}}" matTooltipPosition="above">
+                <mat-error *ngIf="paymentForm.invalid">{{msgValidateEmail()}}</mat-error>
+              </mat-form-field>
+            </span>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+
+      <div class="col-lg-5 div_box">
+        <mat-card class="example-card">
+          <mat-card-header class="center-block">
+            <mat-card-title >{{constants.LABEL_PAYMENT_ACTION}}</mat-card-title>
+          </mat-card-header><br>         
+          <mat-card-content style="text-align:center">
+
+
+            <div class="col-md-12 col-lg-12 text-left payment-div-1" *ngIf="getCrypto" >
+              <span class="amount_to_pay"><img src="{{selectedToken.image}}" width="30px" height="30px"> {{selectedToken.name}}</span>&nbsp;&nbsp; <span class="amount_to_pay_1">(<span class="amount">${{price}}</span>)</span>
+            </div>
+            <hr *ngIf="selectedToken != null">
+
+            <div class="col-md-12 col-lg-12 text-left payment-div-1">
+              <span class="amount_to_pay">{{constants.LABEL_VALUE_TO_PAY}}: <span class="tokens">${{totalAmount}}</span></span>
+            </div>
+            <div class="col-md-12 col-lg-12 text-left payment-div-1" *ngIf="getCrypto">
+              <span class="amount_to_pay">{{constants.LABEL_AMOUNT_SEND}}: <span class="tokens">{{sendtotal}}</span> {{selectedToken.name}}</span>
+            </div>
+            <div class="col-md-12 col-lg-12 text-left payment-div-1 amount_to_pay">
+                <button  mat-raised-button color="primary" (click)="openCoins()" type="button" class="btfp">{{constants.LABEL_SELECT_FORM_PAYMENT}}</button>&nbsp;&nbsp;
+                <button  mat-raised-button color="primary" (click)="openDialog()" type="button" [disabled]="paymentForm.invalid || selectedToken == null">{{constants.LABEL_CHECKOUT_PAY}}</button>                              
+            </div>            
+          </mat-card-content>      
+        </mat-card>
+      </div>
+
+      <div class="col-md-12 col-lg-12 text-right payment-div-1 padding-one">
+        <span class="amount_to_pay">
+          <span  class="amount_to_pay seconds" *ngIf="getCrypto">{{constants.LABEL_PRICE_REFRESH}}</span>
+          <div class="digits_div"><span *ngIf="getCrypto" class="amount_to_pay seconds colorgray"> {{digits}} </span></div>
+        </span>
+      </div>   
+
+    </div>
+  </div>
+</form>
+
+<div class="container-fluid estilo-login block" *ngIf="transactionDone && !isAnulated && !isCompleted">
+  <mat-dialog-content>
+    <div class="row">
+    <div  class="col-xs-12 col-sm-12 col-sm-12 col-lg-12 pd20 text-right"><span class="time-left" *ngIf="getCrypto"><b>{{constants.LABEL_TIME_LEFT}}</b>: {{digitsT}} </span></div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-sm-12 col-lg-12 pd20 text-center">
+        <span class="total-to-send" *ngIf="getCrypto"><b>{{constants.LABEL_VALUE_TO_PAY}}</b>: ${{amount}} </span><br><br>
+      </div>
+        <div class="col-xs-12 col-sm-12 col-sm-12 col-lg-12 pd20 text-center">
+          <span class="total-to-send" *ngIf="getCrypto"><b>{{constants.LABEL_SEND}}</b>: {{sendtotal}} <img src="{{imageToken}}"  width="30px" height="30px"> {{symbol}}</span><br>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-sm-12 col-lg-12 pdr0 text-center pd10">
+          <qr-code [value]="wallet" [size]="250" [foreground]="color2"></qr-code><br><br>
+          <span class="total-to-send"><b>Wallet</b>: {{wallet}}</span><br><br>                    
+        </div>
+        <div class="col-xs-12 col-sm-12 col-sm-12 col-lg-12 pdl0 pd10 pdm20 text-center">
+          <div class="row pd10 refresh">
+            <div class="col-12">
+              <button mat-raised-button color="primary" type="button" (click)="openDialogAnul();">{{constants.LABEL_CANCEL_TRANSACTION}}</button>              
+            </div>
+          </div>
+        </div>
+    </div>
+  </mat-dialog-content>
+</div>
+
+<div class="container-fluid estilo-login block" *ngIf="isAnulated">
+  <div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+      <mat-card class="example-card">
+        <mat-icon matSuffix color="primary" class="icon-big {{colorSuccess}}">{{iconSuccess}}</mat-icon>
+        <mat-card-header class="center-block">
+          <mat-card-title >
+            {{msgSuccess}}<br><br>
+          </mat-card-title>
+        </mat-card-header><br>
+      </mat-card>
+    </div>
+    <div class="col-lg-4"></div>
+  </div>
+</div>
+
+<div class="container-fluid estilo-login block" *ngIf="isError && !isCompleted">
+  <div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+      <mat-card class="example-card">
+        <mat-icon matSuffix color="primary" class="icon-big {{color}}">{{icon}}</mat-icon>
+        <mat-card-header class="center-block">
+          <mat-card-title >{{msgError}}</mat-card-title>
+        </mat-card-header><br>
+      </mat-card>
+    </div>
+    <div class="col-lg-4"></div>
+  </div>
+</div>
+
+<div class="container-fluid estilo-login block" *ngIf="isCompleted && !isError">
+  <div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+      <mat-card class="example-card">
+        <mat-icon matSuffix color="primary" class="icon-big {{colorCompleted}}">{{iconCompleted}}</mat-icon>
+        <mat-card-header class="center-block">
+          <mat-card-title >{{msgCompleted}}</mat-card-title>
+        </mat-card-header><br>
+      </mat-card>
+    </div>
+    <div class="col-lg-4"></div>
+  </div>
+</div>
+<app-footer></app-footer>
+
