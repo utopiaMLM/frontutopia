@@ -122,9 +122,6 @@ ngOnInit(): void {
     if(localStorage.getItem('lang') ===undefined || localStorage.getItem('lang') === null ){
       localStorage.setItem('lang', this.global.LANGUAGE_EN);
     } 
-
-    this.setPriceToken();
-
       
     if(this.getTransactionNow()){
 
@@ -135,7 +132,7 @@ ngOnInit(): void {
               this.resultProfile = result;
               this.paymentForm.get('email').setValue(this.buyerEmail);
               this.paymentForm.get('name').setValue(this.buyerName);         
-              this.totalAmount = this.amount * this.tokenPrice;
+              this.totalAmount = this.amount;
             },
             error => {
               this.msgError =  this.constants.MSG_ERROR_PROFILE_NOT_FOUND;
@@ -160,12 +157,6 @@ ngOnInit(): void {
     }   
   }
 
-
-  /** Determina el precio de venta del token acorde a la fecha */
-  setPriceToken(){
-    this.tokenPrice = 2.5;
-  }
-
    /**
    * Crea una transacción
    */
@@ -178,7 +169,7 @@ ngOnInit(): void {
       clientName: this.paymentForm.get('name').value,
       clientEmail: this.paymentForm.get('email').value,
       amount: this.totalAmount,
-      description: this.amount+" AMEC Tokens ",
+      description: "",
       cryptoSelected: this.selectedToken._id,
       blockchainSelected: this.selectedToken.blockchain[0],
       priceCryptoSelected: this.price,
@@ -606,33 +597,53 @@ changelanguage(lang: any) {
         clearInterval(this.idT);
       }
     }
-/**
+ /**
    * Toma los parametros de la url
    * 
    * @param params 
    * 
    */
- validateParams(params:any):boolean{
+  validateParams(params:any):boolean{
 
-  if (params.amount === undefined || isNaN(params.amount)) {
-    this.isError =  true;  
-    this.msgError =  this.constants.LABEL_ERROR_AMOUNT;
-    return false;
-  }else{
-    this.amount = params.amount;
-  }
-  
-  if (params.purchaseId === undefined) {
-    this.isError =  true;  
-    this.msgError =  this.constants.LABEL_ERROR_PURCHASE_ID;
-    return false;
-  }else{
-    this.purchaseId = params.purchaseId;
-  }
+    if (params.amount === undefined || isNaN(params.amount)) {
+      this.isError =  true;  
+      this.msgError =  this.constants.LABEL_ERROR_AMOUNT;
+      return false;
+    }else{
+      this.amount = params.amount;
+    }
+    
+    if (params.purchaseId === undefined) {
+      this.isError =  true;  
+      this.msgError =  this.constants.LABEL_ERROR_PURCHASE_ID;
+      return false;
+    }else{
+      this.purchaseId = params.purchaseId;
+    }
 
-  this.isError= false;
-  return true;
-}
+    if (params.buyerName !== undefined && params.buyerName.trim() ==='') {
+      this.isError =  true;  
+      this.msgError =  this.constants.LABEL_ERROR_BUYER_NAME;
+      return false;
+    }else{
+      this.buyerName = params.buyerName;
+    }
+
+    if (params.buyerEmail !== undefined && !this.validateEmail(params.buyerEmail)) {
+      this.isError =  true;  
+      this.msgError =  this.constants.LABEL_ERROR_BUYER_EMAIL;
+      return false;
+    }else{
+      this.buyerEmail = params.buyerEmail;
+    }
+
+    if (params.description !== undefined) {
+      this.description = params.description;
+    }
+    this.isError= false;
+    return true;
+
+  }
 }
 
 

@@ -43,20 +43,10 @@ export class CommonsService {
   }
 
   public getConstants(): any {
-    if (localStorage.getItem('lang') !== undefined
-    && localStorage.getItem('lang') === 'es') {
-      return constantses;
-    } else {
-      return constantsen;
-    }
+      return constantses;    
   }
   public getLang(): any {
-    if (localStorage.getItem('lang') !== undefined
-    && localStorage.getItem('lang') === 'es') {
-      return global.LANGUAGE_ES;
-    } else {
-      return global.LANGUAGE_EN;
-    }
+      return global.LANGUAGE_ES;    
   }
 
   /** Obtiene la lista de paises */

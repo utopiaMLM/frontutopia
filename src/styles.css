@@ -19,11 +19,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   font-weight: 700;
   font-size: 52px;
   font-family: 'Poppins', sans-serif;
-  color: #fbbd18;
+  color: #da4bfd;
 }
 
 .icon-profile{
-  color: #fbbd18;
+  color: #da4bfd;
   font-size: 2.3em !important;
 }
 .card-roadmap{
@@ -166,7 +166,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .widget-title{
-  color: #fbbd18;
+  color: #da4bfd;
   text-transform: uppercase;
   font-size: 1.23em !important;
 }
@@ -212,14 +212,14 @@ ul.social{
   height: 48px;
   line-height: 46px;
   text-align: center;
-  color: #fbbd17;
+  color: #da4bfd;
   font-size: 20px;
   display: block;
   -webkit-transition: all 300ms;
   transition: all 300ms;
 }
 .social li a:hover {
-  background: #fbbd17;
+  background: #da4bfd;
   color: #000;
 }
 
@@ -1522,7 +1522,7 @@ ul.list_members li{
   font-size:1.23em;
 }
 .color-orange{
-  color:#fbbd18;
+  color:#da4bfd;
 }
 
 @media screen and (max-width: 975px){
@@ -1612,7 +1612,7 @@ ul.list_members li{
   font-weight: 700;
   font-size: 52px;
   font-family: 'Poppins', sans-serif;
-  color: #fbbd18;
+  color: #da4bfd;
 }
 
 @media screen and (min-width: 976px){
@@ -1640,13 +1640,13 @@ ul.list_members li{
   margin-left: 35px;
 }
 .list_link:hover{
-  color: #fbbd18 !important;
+  color: #da4bfd !important;
   -webkit-transition:all 400ms;
 	transition:all 400ms;
 }
 
 .navbar-toggler-icon{
-  background: #fbbd18;
+  background: #da4bfd;
   padding:10px;
 }
 
@@ -1655,7 +1655,7 @@ ul.list_members li{
 .footer-lungwort {
  padding: 50px 0 20px;
  padding: 35px;
- border-top: 5px solid #fbbd18;
+ border-top: 5px solid #da4bfd;
  background: #000;
 }
 
@@ -1670,7 +1670,7 @@ ul.list_members li{
  }
 
  .link_footer:hover{
-  color:#fbbd18  !important;
+  color:#da4bfd  !important;
   text-decoration: none  !important;
  }
 
@@ -1682,20 +1682,20 @@ ul.list_members li{
 }
 
 .mat-flat-button.mat-primary, .mat-raised-button.mat-primary, .mat-fab.mat-primary, .mat-mini-fab.mat-primary {
-  background: #dda715;
+  background: #da4bfd;
   color: #1d1d1d;
   border: 2px solid #000;
   box-shadow: none;
 }
 
 .mat-flat-button.mat-primary:hover, .mat-raised-button.mat-primary:hover, .mat-fab.mat-primary:hover, .mat-mini-fab.mat-primary:hover {
-  background: #fbbd18;
+  background: #da4bfd;
   -webkit-transition:all 400ms;
 	transition:all 400ms;
 }
 
 .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
-  background-color: #fbbd18;
+  background-color: #da4bfd;
 }
 
 .mat-flat-button.mat-accent, .mat-raised-button.mat-accent, .mat-fab.mat-accent, .mat-mini-fab.mat-accent {
@@ -1703,7 +1703,7 @@ ul.list_members li{
 }
 
 .mat-input-element {
-  caret-color: #fbbd18 !important;
+  caret-color: #da4bfd !important;
 }
 
 .mat-flat-button.mat-primary[disabled], .mat-flat-button.mat-accent[disabled], .mat-flat-button.mat-warn[disabled], 
@@ -1736,7 +1736,7 @@ ul.list_members li{
 }
 
 .text-anchor:hover{
-  color: #dda715;
+  color: #da4bfd;
   text-decoration: none;
   cursor: pointer;
   cursor: hand;
@@ -1771,7 +1771,7 @@ ul.list_members li{
 }
 
 .mat-menu-item .mat-icon-no-color, .mat-menu-item-submenu-trigger::after{
-  color: #dda715;
+  color: #da4bfd;
 }
 
 .title_construction{
@@ -1789,19 +1789,19 @@ th.mat-header-cell{
 }
 
 .mat-checkbox-indeterminate.mat-primary .mat-checkbox-background, .mat-checkbox-checked.mat-primary .mat-checkbox-background {
-  background-color: #fbbd18;
+  background-color: #da4bfd;
 }
 
 .mat-form-field.mat-focused .mat-form-field-ripple{
-  background-color: #fbbd18;
+  background-color: #da4bfd;
 }
 
 .mat-form-field.mat-focused .mat-form-field-label{
-  color: #dda715;
+  color: #da4bfd;
 }
 
 .mat-icon.mat-primary{
-  color: #fbbd18;
+  color: #da4bfd;
 }
 
 .mat-optgroup-label{
@@ -1817,6 +1817,6 @@ th.mat-header-cell{
 }
 
 .yellow{
-  background: #fbbd18;
+  background: #da4bfd;
   color: #1d1d1d;
 }

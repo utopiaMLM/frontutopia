@@ -198,7 +198,7 @@ export const constantsen = {
   PLACEHOLDER_NAME: 'Name',
 
   SUBJECT_LOST_EMAIL : 'Password recovered',
-  SUBJECT_SIGNUP_SUCCESSFULL : 'You have been succesfully registered in TovaGateway ',
+  SUBJECT_SIGNUP_SUCCESSFULL : 'You have been succesfully registered in Utopia ',
   SUBJECT_SEND_COMMENTS : 'Comment sent',
 
   MSG_SUCCESSFULL_SAVE_PROFILE: 'Profile saved successfully',

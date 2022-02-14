@@ -107,7 +107,7 @@ input{
         font-weight: 700;
         font-size: 32px;
         font-family: 'Poppins', sans-serif;
-        color: #fbbd18;
+        color: #da4bfd;
       }
 }
 
@@ -120,7 +120,7 @@ input{
 .bt-facebook, .mat-fab.mat-primary, .mat-flat-button.mat-primary, .mat-mini-fab.mat-primary, .mat-raised-button.mat-primary {
     color: #1d1d1d;
     padding: 14px 30px;
-    background: #fbbd18;
+    background: #da4bfd;
     border-radius: 4px;
     font-weight: 700;
     text-transform: uppercase;
@@ -129,7 +129,7 @@ input{
 .bt-facebook, .mat-fab.mat-primary, .mat-flat-button.mat-primary, .mat-mini-fab.mat-primary, .mat-raised-button.mat-primary {
     color: #1d1d1d;
     padding: 10px 10px;
-    background: #fbbd18;
+    background: #da4bfd;
     border-radius: 4px;
     font-weight: 700;
     text-transform: uppercase;

@@ -30,14 +30,13 @@ export class SignupComponent implements OnInit, OnDestroy {
   dialogRef: any;
   public global: any;
   isSigned = false;
-  public userTypeArraySelect = new Array();
+
 
   public signUpForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email, Validators.pattern(this.utilsService.emailPattern)]),
     password: new FormControl('', [Validators.required, Validators.maxLength(14), Validators.minLength(8)]),
     passwordRepeat: new FormControl('', [Validators.required, Validators.maxLength(14), Validators.minLength(8)]),
-    name: new FormControl('',  [Validators.required, Validators.maxLength(30), Validators.minLength(8)]),
-    userType: new FormControl('', Validators.required)
+    name: new FormControl('',  [Validators.required, Validators.maxLength(30), Validators.minLength(8)])
     });
 
   constructor(
@@ -55,9 +54,6 @@ export class SignupComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.global = global;
     this.constants = this.commonsService.getConstants();
-
-    this.userTypeArraySelect.push({id: global.ROLE_USER, label: this.constants.LABEL_TYPE_USER_PERSON});
-    this.userTypeArraySelect.push({id: global.ROLE_BUSSINESS, label: this.constants.LABEL_TYPE_USER_BUSSINESS});
 
     if (this.authLoginService.isLoggedIn()) {
       this.router.navigate([global.ROUTE_DASHBOARD]);
@@ -86,7 +82,7 @@ export class SignupComponent implements OnInit, OnDestroy {
       this.recaptchaV3Service.execute('importantAction')
       .subscribe((token) => {
         const lang = this.commonsService.getLang();        
-        const user = {password: data.password, email: data.email, name: data.name, userType:data.userType,
+        const user = {password: data.password, email: data.email, name: data.name,
           subject: this.constants.SUBJECT_SIGNUP_SUCCESSFULL, captcha_token: token, lang};
         this.signupService.signup(user).subscribe (
           result => {
@@ -150,11 +146,7 @@ export class SignupComponent implements OnInit, OnDestroy {
     '';
   }
 
-  msgValidateRole() {
-    return  this.signUpForm.get('userType').hasError('required') ? this.constants.LABEL_FIELD_REQUIRED :
-    '';
-  }
-
+ 
   msgValidateUsername() {
     return  this.signUpForm.get('username').hasError('required') ? this.constants.LABEL_FIELD_REQUIRED :
     this.signUpForm.get('username').hasError('maxlength') ? this.constants.LABEL_MAX_LENGTH_12 :

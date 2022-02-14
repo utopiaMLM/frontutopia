@@ -386,7 +386,7 @@ export const constantses = {
   LABEL_AMOUNT_SEND: 'Enviar',
   PLACEHOLDER_DESCRIPTION: 'Descripción de pago',
   LABEL_STORE_DATA:'Empresa',
-  LABEL_VALUE_TO_PAY:'Monto a pagar',
+  LABEL_VALUE_TO_PAY:'Costo',
   LABEL_PAYMENT_ACTION: 'Pago',
   LABEL_PRICE_OF: 'Precio de',
   LABEL_AMOUNT_PAY: 'Pago',

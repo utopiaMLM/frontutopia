@@ -26,16 +26,6 @@
               </mat-form-field><br>
 
               <mat-form-field class="inputWidth">
-                <mat-label>{{constants.PLACEHOLDER_TYPEUSER}}</mat-label>
-                <mat-select formControlName="userType" placeholder="{{constants.PLACEHOLDER_TYPEUSER}}">
-                  <mat-option *ngFor="let userType of userTypeArraySelect" [value]="userType.id">
-                      {{userType.label}}
-                  </mat-option>
-              </mat-select>
-                <mat-error *ngIf="signUpForm.invalid">{{msgValidateRole()}}</mat-error>
-              </mat-form-field><br>
-
-              <mat-form-field class="inputWidth">
                 <mat-label>{{constants.PLACEHOLDER_PASSWORD}}</mat-label>
                 <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" placeholder="{{constants.PLACEHOLDER_PASSWORD}}" #password maxlength="14" autocomplete="off">
                 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
@@ -56,7 +46,7 @@
                 <mat-hint align="end">{{passwordRepeat.value.length}} / 14</mat-hint>
                 <mat-error *ngIf="signUpForm.invalid">{{msgValidatePasswordRepeat()}}</mat-error>
               </mat-form-field><br><br>
-                <span class="text-anchor" (click)="openPoliticsDialog()">{{constants.LABEL_PRIVACY_POLITICS}}</span>&nbsp; | <span class="text-anchor" (click)="openTermsDialog();">{{constants.LABEL_TERMS_AND_CONDITIONS}}</span><br><br>
+                
               <div style="clear:both" class="block">
                   <button mat-raised-button color="primary" type="submit" [disabled]="signUpForm.invalid">{{constants.LABEL_SIGNUP}}</button>&nbsp;
                   <button mat-raised-button color="accent" type="button" (click)="close()">{{constants.LABEL_CANCEL}}</button><br>                  

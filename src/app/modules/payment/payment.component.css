@@ -3,7 +3,8 @@
 }
 
 .mat-card-header .mat-card-title {
-    color: dimgray;
+    color: #630bc2;
+    font-size:1.75em;
 }
 .amount_to_pay{
     font-size: 1.3em !important;

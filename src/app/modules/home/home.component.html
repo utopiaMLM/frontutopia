@@ -2,23 +2,13 @@
 <main class="main_content">
   <div class="container-fluid div-home">
     <div class="row" style="padding-top:45px;">
-      <div class="col-lg-1"></div>        
-      <div class="col-lg-5">        
-          <div class="text-justify">
-            <p class="title_home">{{constants.LABEL_HOME_INTRO}}.</p><br>
+      <div class="col-lg-12">        
+          <div class="text-center">            
             <br>
-            <p class="content_home">{{constants.LABEL_HOME_INTRO_3}}.</p>
-            <br>
-            <p class="text-center" *ngIf="!logged"><button mat-raised-button color="primary" routerLink="{{url}}" >{{constants.LABEL_SIGNUP}}</button></p>
+            <span class="text-center"><img src="../../../assets/banner-img.png"></span><br><br>
             <p class="text-center" *ngIf="logged"><button mat-raised-button color="primary" routerLink="{{url}}" >{{constants.LABEL_GO_TO_PANEL}}</button></p>
           </div>
-      </div>
-      <div class="col-lg-5 home-content-wrapper">
-        <div class="text-justify home-content" >
-            <img src="../../../assets/b1.png" class="img-fluid" style="width:100%"><br>
-        </div>
-      </div>
-      <div class="col-lg-1"></div>        
+      </div>      
     </div>
   </div>
 </main>

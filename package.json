@@ -1,5 +1,5 @@
 {
-  "name": "gateway-front",
+  "name": "front-utopia",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
