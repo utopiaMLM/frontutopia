@@ -177,7 +177,7 @@ ngOnInit(): void {
       symbol: this.selectedToken.symbol,  
       blockchainSymbol: this.selectedToken.blockchainSymbol,
       smartcontract: this.selectedToken.smartcontract, 
-      purchaseId: this.purchaseId,
+      //purchaseId: this.purchaseId,
       subject:  this.constants.LABEL_TRANSACTION,
       lang};
 
@@ -422,6 +422,40 @@ ngOnInit(): void {
     );
   }
 
+  getValueTokenTOP(){
+    this.utilsService.loading();
+    this.commonsService.getInfoTOP().subscribe (
+      result => {
+        this.getCrypto = true;
+        this.resultCoinGecko = result;
+        this.price = this.resultCoinGecko.data;
+        this.sendtotal = (this.totalAmount /  this.price) ;
+        this.sendtotal = this.sendtotal.toFixed(4);
+        this.utilsService.closeLoading();
+        this.contador = 180;
+        if (this.id) {
+          clearInterval(this.id);
+        }
+        this.id = setInterval(() => {
+          this.decrementTime();
+          }, 1000);
+
+
+      },
+      error => {
+        this.utilsService.closeLoading();
+        this.getCrypto = false;
+        this.toastr.error(this.constants.MSG_ERROR_API_PRECIO);
+        if (this.id) {
+          clearInterval(this.id);
+        }        
+      },
+      () => {
+        this.utilsService.closeLoading();
+        this.paymentForm.markAllAsTouched();
+      });
+}
+
 
   /**
   * Obtiene el valor de la moneda consultada a traves del api de coingecko
@@ -500,7 +534,12 @@ ngOnInit(): void {
 
       this.cryptoSelected = result.cryptoSelected;
       this.selectedToken = this.cryptoSelected;
-      this.getValueToken();
+      if(this.selectedToken.symbol === 'TOP' ){
+        this.getValueTokenTOP();
+      }else{
+        this.getValueToken();
+      } 
+
     });
   }
   
@@ -613,13 +652,13 @@ changelanguage(lang: any) {
       this.amount = params.amount;
     }
     
-    if (params.purchaseId === undefined) {
+    /*if (params.purchaseId === undefined) {
       this.isError =  true;  
       this.msgError =  this.constants.LABEL_ERROR_PURCHASE_ID;
       return false;
     }else{
       this.purchaseId = params.purchaseId;
-    }
+    }*/
 
     if (params.buyerName !== undefined && params.buyerName.trim() ==='') {
       this.isError =  true;  

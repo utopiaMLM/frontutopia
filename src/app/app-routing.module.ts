@@ -36,12 +36,7 @@ const routes: Routes = [
   { path: global.ROUTE_GATEWAY + '/:profileId/:amount/:purchaseId/:buyerName/:buyerEmail', component: GatewayComponent },  
   { path: global.ROUTE_GATEWAY + '/:profileId/:amount/:purchaseId/:buyerName/:buyerEmail/:description', component: GatewayComponent },  
 
-  { path: global.ROUTE_PAYMENT , component: PaymentComponent },  
-  { path: global.ROUTE_PAYMENT + '/:amount', component: PaymentComponent },  
-  { path: global.ROUTE_PAYMENT + '/:amount/:purchaseId', component: PaymentComponent },  
-  { path: global.ROUTE_PAYMENT + '/:amount/:purchaseId/:buyerName', component: PaymentComponent },  
-  { path: global.ROUTE_PAYMENT + '/:amount/:purchaseId/:buyerName/:buyerEmail', component: PaymentComponent },  
-  { path: global.ROUTE_PAYMENT + '/:amount/:purchaseId/:buyerName/:buyerEmail/:description', component: PaymentComponent },  
+  { path: global.ROUTE_PAYMENT + '/:amount/:buyerName/:buyerEmail/:description', component: PaymentComponent },  
 
   {
     path : global.ROUTE_DASHBOARD,

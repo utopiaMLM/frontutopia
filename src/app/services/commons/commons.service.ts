@@ -30,6 +30,8 @@ export class CommonsService {
   private urlWSALLBLOCKAINS = global.URLBASE_API + '/commons/getAllBlockchains';
   private urlWSCRYPTOGECKO = global.URLBASE_API + '/commons/getCryptoCurrencyGecko';
 
+  private urlWSCRYPTOTOP = global.URLBASE_API + '/commons/getPriceUtopia';
+
   
  /** Cambiar a service blockchain*/
   private urlWSGETBLOCKCHAINUSER = global.URLBASE_API + '/getBlockchainsUser';
@@ -110,6 +112,13 @@ export class CommonsService {
   public getInfoCoingecko(data: any) {
     return this.http.post<ResultCoinGecko>(this.urlWSCRYPTOGECKO, data);
   }
+
+  public getInfoTOP() {
+    const token = localStorage.getItem('token');
+    const data = {token};
+    return this.http.post<ResultCoinGecko>(this.urlWSCRYPTOTOP, data);
+  }
+
 
    /** Obtiene los blockchain de los usuarios */
    public getBlockchainsUser() {    

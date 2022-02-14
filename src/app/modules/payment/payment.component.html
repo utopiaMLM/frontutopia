@@ -69,18 +69,15 @@
             
           </mat-card-header><br>         
           <mat-card-content style="text-align:center">
-
-
+            <div class="col-md-12 col-lg-12 text-left payment-div-1">
+              <span class="amount_to_pay" style="font-size:1.50em !important;">Total a pagar: <span class="tokens">${{totalAmount}}</span></span>
+            </div>
+            <hr>
             <div class="col-md-12 col-lg-12 text-left payment-div-1" *ngIf="getCrypto" >
               <span class="amount_to_pay"><img src="{{selectedToken.image}}" width="30px" height="30px"> {{selectedToken.name}}</span>&nbsp;&nbsp; <span class="amount_to_pay_1">(<span class="amount">${{price}}</span>)</span>
             </div>
-            <hr *ngIf="selectedToken != null">
-
-            <div class="col-md-12 col-lg-12 text-left payment-div-1">
-              <span class="amount_to_pay">{{constants.LABEL_VALUE_TO_PAY}}: <span class="tokens">${{totalAmount}}</span></span>
-            </div>
-            <div class="col-md-12 col-lg-12 text-left payment-div-1" *ngIf="getCrypto">
-              <span class="amount_to_pay">{{constants.LABEL_AMOUNT_SEND}}: <span class="tokens">{{sendtotal}}</span> {{selectedToken.name}}</span>
+            <div class="col-md-12 col-lg-12 text-left payment-div-1"  style="padding-top:10px;" *ngIf="getCrypto">
+              <span class="amount_to_pay" style="font-size:1.50em !important;"><b> {{constants.LABEL_AMOUNT_SEND}} </b>: <span class="tokens">{{sendtotal}}</span> {{selectedToken.name}}</span>
             </div>
             <div class="col-md-12 col-lg-12 text-left payment-div-1 amount_to_pay">
                 <button  mat-raised-button color="primary" (click)="openCoins()" type="button" class="btfp">{{constants.LABEL_SELECT_FORM_PAYMENT}}</button>&nbsp;&nbsp;
@@ -108,7 +105,7 @@
     </div>
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-sm-12 col-lg-12 pd20 text-center">
-        <span class="total-to-send" *ngIf="getCrypto"><b>{{constants.LABEL_VALUE_TO_PAY}}</b>: ${{amount}} </span><br><br>
+        <span class="total-to-send" *ngIf="getCrypto"><b>Total a pagar</b>: ${{amount}} </span><br><br>
       </div>
         <div class="col-xs-12 col-sm-12 col-sm-12 col-lg-12 pd20 text-center">
           <span class="total-to-send" *ngIf="getCrypto"><b>{{constants.LABEL_SEND}}</b>: {{sendtotal}} <img src="{{imageToken}}"  width="30px" height="30px"> {{symbol}}</span><br>

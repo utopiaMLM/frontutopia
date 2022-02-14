@@ -7,10 +7,11 @@
                                                 <h2>{{group.blocksArray.name}}</h2>
                                         </div>
                                         
-                                        <div class="col-xs-6 col-sm-4 col-sm-2 col-lg-2 text-left pb15" *ngFor="let crypto of group.cryptosArray">
-                                                <mat-radio-button  (change)="getValueToken(crypto)">   <img src={{crypto.image}}> {{crypto.name}} </mat-radio-button>
-                                        </div>
-                                        
+                                        <div class="col-xs-6 col-sm-4 col-sm-2 col-lg-2 text-left pb20" style="margin-right:15px;" *ngFor="let crypto of group.cryptosArray">
+                                                <mat-radio-button  (change)="getValueToken(crypto)" *ngIf="crypto.symbol !== 'TOP'">&nbsp;<img src={{crypto.image}} *ngIf="crypto.symbol !== 'TOP'"> {{crypto.name}} </mat-radio-button>       
+                                                
+                                                <mat-radio-button  (change)="getValueToken(crypto)" *ngIf="crypto.symbol=== 'TOP'">&nbsp;<img src={{crypto.image}}  style="height:50px;width: 80px;" *ngIf="crypto.symbol=== 'TOP'"> {{crypto.name}} </mat-radio-button>      
+                                        </div>                                        
                                 </div>       
                         </span>
                         <div class="col-12 pd10 text-center">
