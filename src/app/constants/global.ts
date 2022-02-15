@@ -1,11 +1,11 @@
 export const global = {
-  //URLBASE_API: 'https://api-tova.herokuapp.com/api',
-  //URLBASE_FRONT: 'https://front-tova.herokuapp.com',
-  //profileID : '618597141c484f0016b5d406',
+  URLBASE_API: 'https://apiutopia.herokuapp.com/api',
+  URLBASE_FRONT: 'https://front-utopia.herokuapp.com',
+  profileID : '618597141c484f0016b5d406',
 
-  URLBASE_API: 'http://localhost:3001/api',
-  URLBASE_FRONT: 'http://localhost:4200',
-  profileID : '620a8c6ac82d416b64257872', 
+  //URLBASE_API: 'http://localhost:3001/api',
+  //URLBASE_FRONT: 'http://localhost:4200',
+  //profileID : '620a8c6ac82d416b64257872', 
 
   ROUTE_LOGIN: 'signin',
   ROUTE_SIGNUP: 'signup',
