@@ -69,12 +69,12 @@
         </mat-card-header>
 
         <mat-card-content style="text-align:center">
-          <div class="row pd8">
-            <div class="col-sm-2 col-lg-3 label_data">{{constants.LABEL_NAME}}</div>
-            <div class="col-sm-10 col-lg-8 text-left label_data_2">{{clientName}}</div>
+          <div class="row pd10"> 
+            <div class="col-sm-2 col-lg-3 label_data padl10 text-left">{{constants.LABEL_NAME}}</div>
+            <div class="col-sm-10 col-lg-8 text-left label_data_2 ">{{clientName}}</div>
           </div>       
           <div class="row pd8">
-            <div class="col-sm-2 col-lg-3 label_data">{{constants.PLACEHOLDER_EMAIL}}</div>
+            <div class="col-sm-2 col-lg-3 label_data padl10 text-left">{{constants.PLACEHOLDER_EMAIL}}</div>
             <div class="col-sm-10 col-lg-8 text-left label_data_2">{{clientEmail}}</div>
           </div> 
         </mat-card-content>
@@ -88,24 +88,24 @@
         </mat-card-header>
 
         <mat-card-content style="text-align:center">
-          <div class="row pd8">
-            <div class="col-sm-3 col-lg-3  label_data">{{constants.LABEL_CREATION_DATE}}</div>
+          <div class="row pd10">
+            <div class="col-sm-3 col-lg-4  label_data text-left padl10">{{constants.LABEL_CREATION_DATE}}</div>
             <div class="col-sm-8 col-lg-8 text-left label_data_2">{{creationDate}}</div>
           </div>       
-          <div class="row pd8">
-            <div class="col-sm-3 col-lg-3 label_data">{{constants.LABEL_CRYPTO_TO_SEND}}</div>
+          <div class="row pd10">
+            <div class="col-sm-3 col-lg-4 label_data text-left padl10">{{constants.LABEL_CRYPTO_TO_SEND}}</div>
             <div class="col-sm-8 col-lg-8 text-left label_data_2">{{cryptoToSend}}</div>
           </div> 
-          <div class="row pd8">
-            <div class="col-sm-3 col-lg-3 label_data">{{constants.LABEL_WALLET_TRANSACTION}}</div>
+          <div class="row pd10">
+            <div class="col-sm-3 col-lg-4 label_data text-left padl10">{{constants.LABEL_WALLET_TRANSACTION}}</div>
             <div class="col-sm-8 col-lg-8 text-left label_data_2">{{transactionWallet}}</div>
           </div>  
-          <div class="row pd8">
-            <div class="col-sm-3 col-lg-3 label_data">{{constants.LABEL_AMOUNT_PAY}}</div>
+          <div class="row pd10">
+            <div class="col-sm-3 col-lg-4 label_data text-left padl10">{{constants.LABEL_AMOUNT_PAY}}</div>
             <div class="col-sm-8 col-lg-8 text-left label_data_2">${{amount}}</div>
           </div> 
-          <div class="row pd8" *ngIf="description!=null">
-            <div class="col-sm-3 col-lg-3 label_data" >{{constants.LABEL_DESCRIPTION}}</div>
+          <div class="row pd10" *ngIf="description!=null">
+            <div class="col-sm-3 col-lg-4 label_data text-left padl10" >{{constants.LABEL_DESCRIPTION}}</div>
             <div class="col-sm-8 col-lg-8 text-left label_data_2">{{description}}</div>
           </div> 
         </mat-card-content>
@@ -121,12 +121,12 @@
 
         <mat-card-content style="text-align:center">
 
-          <div class="row pd8">
-            <div class="col-sm-3 col-lg-4  label_data">{{constants.LABEL_PROCESS_ON}}</div>
-            <div class="col-sm-8 col-lg-7 text-left label_data_2">{{processdate}}</div>
+          <div class="row pd10">
+            <div class="col-sm-4 col-lg-4  label_data padl10 text-left">{{constants.LABEL_PROCESS_ON}}</div>
+            <div class="col-sm-8 col-lg-8 text-left label_data_2">{{processdate}}</div>
           </div>  
 
-          <div class="row pd8">
+          <div class="row pd10">
             <div class="col-lg-12 label_data text-center">              
               <button mat-raised-button color="{{textColor}}" type="button" >{{statusTransaction}}</button>   
             </div>          

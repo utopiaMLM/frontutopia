@@ -80,6 +80,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .pdl3 {
   padding-left: 3px !important;
 }
+.padl10{
+  padding-left: 50px !important;
+}
 .pdb0{
   padding-bottom: 0px !important;
 }
@@ -1683,9 +1686,10 @@ ul.list_members li{
 
 .mat-flat-button.mat-primary, .mat-raised-button.mat-primary, .mat-fab.mat-primary, .mat-mini-fab.mat-primary {
   background: #da4bfd;
-  color: #1d1d1d;
-  border: 2px solid #000;
+  border: 2px solid gray;
   box-shadow: none;
+  font-size: 1em;
+  color: #fff;
 }
 
 .mat-flat-button.mat-primary:hover, .mat-raised-button.mat-primary:hover, .mat-fab.mat-primary:hover, .mat-mini-fab.mat-primary:hover {
@@ -1763,6 +1767,10 @@ ul.list_members li{
   min-height: 600px !important;
 }
 
+.container-fluid_v2{
+  min-height: 0px !important;
+}
+
 .list_how_it_work li{
   color: #2c343b;
   font-size: 1.2em !important;
@@ -1772,6 +1780,7 @@ ul.list_members li{
 
 .mat-menu-item .mat-icon-no-color, .mat-menu-item-submenu-trigger::after{
   color: #da4bfd;
+  
 }
 
 .title_construction{
@@ -1818,5 +1827,99 @@ th.mat-header-cell{
 
 .yellow{
   background: #da4bfd;
-  color: #1d1d1d;
+  box-shadow: none;
+  font-size: 1em;
+  color: #fff;
+  
+}
+
+
+element.style {
+}
+<style>
+button.mat-menu-item {
+    width: 100%;
+}
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+    cursor: pointer;
+}
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+    cursor: pointer;
+}
+.mat-menu-item {
+    width: 100%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    -webkit-tap-highlight-color: transparent;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    line-height: 48px;
+    height: 48px;
+    padding: 0 16px;
+    text-align: left;
+    text-decoration: none;
+    max-width: 100%;
+    position: relative;
+}
+
+.mat-icon {
+  background-repeat: no-repeat;
+  display: inline-block;
+  fill: currentColor;
+  height: 24px;
+  width: 24px;
+}
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+.mat-menu-item .mat-icon {
+  margin-right: 16px;
+  vertical-align: middle;
+}
+
+.timeout_div, .incompletos_div, .success_div, .cancelados_div{
+  font-size: 1.5em;
+  font-weight: 500;
+  width: 70%;
+  color: black;
+  padding: 50px;
+  margin: 0 auto;
+  border-radius:15px;
+  -webkit-box-shadow: 0 0 45px rgba(0, 0, 0, .2);
+  -moz-box-shadow: 0 0 45px rgba(0, 0, 0, .2);
+  box-shadow: 0 0 35px rgba(0, 0, 0, .2);
+  margin-bottom: 15px;
+}
+
+.success_div{
+  border:3px solid rgb(100, 156, 20);
+}
+.incompletos_div{
+  border:3px solid rgb(81, 148, 170);
+}
+.timeout_div{
+  border:3px solid rgb(236, 135, 54);
+}
+.cancelados_div{
+  border:3px solid rgb(228, 49, 45);
 }

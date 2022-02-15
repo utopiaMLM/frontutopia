@@ -1,57 +1,5 @@
 <br><h2>{{constants.LABEL_CONFIGURATION}}</h2>
-  <mat-tab-group>
-    <mat-tab label="{{constants.LABEL_PARAMETER}}">
-      <div class="form-container col-xs-12 col-sm-12 col-sm-12 col-lg-10" style="min-height:550px;">
-        <mat-card class="example-card">
-          <p class="text-config pd10"> {{constants.LABEL_TEXT_PARAMETERS_ONE}}</p><br> 
-          <p class="text-config"> <b>{{constants.LABEL_EXAMPLE}}</b>:  <a href="#">https://front-tova.herokuapp.com/gateway/:profileId/:amount/:purchaseId/:buyerName/:buyerEmail/:description</a></p><br>
-          <mat-card-content >             
-            <p-table [value]="datainfo" responsiveLayout="scroll" [responsive]="true" autoLayout="true" [rowHover]="true" >
-              <ng-template pTemplate="caption">
-                <div class="table-header">
-                  {{constants.LABEL_PARAMETER}}           
-                </div>
-              </ng-template>
-                <ng-template pTemplate="header">
-                    <tr>
-                        <th style="width: 5%">
-                            <div class="p-d-flex p-jc-between p-ai-center">
-                                {{constants.LABEL_POSITION}}                               
-                            </div>
-                        </th>
-            
-                        <th  style="width: 15%">
-                            <div class="p-d-flex p-jc-between p-ai-center">
-                                {{constants.LABEL_NAME_PARAM}}                               
-                            </div>
-                        </th>
-            
-                        <th  style="width: 15%">
-                            <div class="p-d-flex p-jc-between p-ai-center">
-                                {{constants.LABEL_MANDATORY}}
-                            </div>
-                        </th>
-            
-                        <th  style="width: 65%">
-                            <div class="p-d-flex p-jc-between p-ai-center">
-                                {{constants.LABEL_DESCRIPTION}}
-                            </div>
-                        </th>
-                    </tr>
-                </ng-template>
-                <ng-template pTemplate="body" let-info>
-                  <tr>
-                    <td>{{info.position}}</td>
-                    <td>{{info.name}}</td>
-                    <td>{{info.mandatory}}</td>
-                    <td>{{info.description}}</td>                    
-                  </tr>
-                </ng-template>
-            </p-table>
-          </mat-card-content>
-        </mat-card>
-      </div>
-    </mat-tab>
+  <mat-tab-group>    
 
     <mat-tab label="{{constants.LABEL_BLOCKCHAINS}}">
         <div class="form-container col-xs-12 col-sm-12 col-sm-12 col-lg-8 div_blockchains">
@@ -59,7 +7,7 @@
               <mat-card-content style="text-align:left">
                <span class="text-config">{{constants.LABEL_TEXT_BLOCKCHAINS}}:</span> <br><br>
                   <div class="div_block " *ngFor="let block of blockchains">                                            
-                      <mat-checkbox color="primary" value="{{block._id}}" (change)="onChange($event)" [disabled]="block.symbol == global.BLOCKCHAIN_TRON  || block.symbol == global.BLOCKCHAIN_ETHEREUM"  [checked]="containValue(block._id,blockchainsUser)">
+                      <mat-checkbox color="primary" value="{{block._id}}" (change)="onChange($event)"   [checked]="containValue(block._id,blockchainsUser)">
                         <img src="{{block.image}}"> {{block.name}} 
                       </mat-checkbox>
                   </div>

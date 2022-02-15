@@ -31,6 +31,10 @@ export class TransactionsComponent implements OnInit {
   blockchains= new Array<BlockchainModel>();  
   transactions: Transaction[];
   STATUS: Status[];
+  cancelados = 0;
+  incompletos = 0;
+  timeouts = 0;
+  exitosos = 0;
     
   constructor(
     private readonly authLoginService: AuthLoginService,
@@ -97,6 +101,18 @@ export class TransactionsComponent implements OnInit {
 
 
   processStatus(status: number): any {
+    if(status === 1){
+      this.exitosos = this.exitosos + 1;  
+    }
+    if(status === 5){
+      this.incompletos = this.incompletos + 1;  
+    }
+    if(status === 3){
+      this.timeouts = this.timeouts + 1;  
+    }
+    if(status === 2){
+      this.cancelados = this.cancelados + 1;  
+    }
     return this.STATUS.find(data=>data.code === status).value; 
   }
   

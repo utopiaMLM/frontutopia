@@ -30,7 +30,6 @@ import {MatCardModule} from '@angular/material/card';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatSliderModule } from '@angular/material/slider';
 import {MatSidenavModule } from '@angular/material/sidenav';
-import {PaymentsComponent } from '../payments/payments.component';
 import {WalletComponent } from '../wallet/wallet.component';
 import { SecurityComponent } from '../security/security.component';
 import { ValidateProfileComponent } from '../validate-profile/validate-profile.component';
@@ -43,7 +42,6 @@ import {TableModule} from 'primeng/table';
   declarations: [
     HomeComponent,
     CompanyProfileComponent,
-    PaymentsComponent,
     WalletComponent,
     SecurityComponent,
     ValidateProfileComponent,

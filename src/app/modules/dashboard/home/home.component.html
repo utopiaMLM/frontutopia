@@ -1,7 +1,26 @@
 <main class="main_content">
     <div class="container-fluid">
       <div class="row" style="padding-top:45px;">
-        <div class="col-lg-12 text-center"><p class="title_home">{{constants.TOTAL_FUNDS}}: {{total}}</p></div> 
+        <div class="col-lg-3 text-center">
+            <div class="success_div">
+               Pagos Exitosos: {{exitosos}}
+            </div>
+        </div> 
+        <div class="col-lg-3 text-center">
+            <div class="incompletos_div">
+                Incompletos: {{incompletos}}
+            </div>
+        </div>                 
+        <div class="col-lg-3 text-center">
+            <div class="timeout_div">
+                Pagos Timeout: {{timeouts}}
+            </div>
+        </div> 
+        <div class="col-lg-3 text-center">
+            <div class="cancelados_div">
+                Cancelados: {{cancelados}}
+            </div>
+        </div>         
       </div>
       <div class="row" style="padding-top:45px;">
         <div class="col-lg-12 text-left"><p class="title_home">{{constants.TRANSACTIONS_HISTORY}}</p>

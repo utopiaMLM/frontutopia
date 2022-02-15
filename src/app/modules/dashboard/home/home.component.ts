@@ -39,8 +39,11 @@ export class HomeComponent implements OnInit {
   transactions: Transaction[];
   total: any;
   STATUS: Status[];
-  displayedColumns: string[] = ['date', 'amount', 'client', 'crypto','status'];
-  dataSource = ELEMENT_DATA;
+  
+  cancelados = 0;
+  incompletos = 0;
+  timeouts = 0;
+  exitosos = 0;
 
   constructor(
     private readonly commonsService: CommonsService,
@@ -96,7 +99,23 @@ export class HomeComponent implements OnInit {
     
   }
   processStatus(status: number): any {
+
+    if(status === 1){
+      this.exitosos = this.exitosos + 1;  
+    }
+    if(status === 5){
+      this.incompletos = this.incompletos + 1;  
+    }
+    if(status === 3){
+      this.timeouts = this.timeouts + 1;  
+    }
+    if(status === 2){
+      this.cancelados = this.cancelados + 1;  
+    }
+
     return this.STATUS.find(data=>data.code === status).value; 
+
+    
   }
 
 

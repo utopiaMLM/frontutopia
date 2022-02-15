@@ -113,3 +113,7 @@
 .border-none{
     border: none !important;
 }
+
+.mat-card-content{
+    font-size: 1.12em;
+}

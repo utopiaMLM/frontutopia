@@ -7,6 +7,7 @@ import { CommonsService } from 'src/app/services/commons/commons.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { TransactionService } from 'src/app/services/transaction/transaction.service';
+import { formatDate} from '@angular/common';
 
 @Component({
   selector: 'app-check-transactions',
@@ -89,6 +90,9 @@ export class CheckTransactionsComponent implements OnInit, OnDestroy {
           this.storeName = transaction.storeName;
           this.storeWeb = transaction.storeWeb;
           this.description = transaction.description;
+          
+          this.creationDate = formatDate( this.creationDate, 'dd/MM/y hh:mm:ss a', 'en-US');
+          this.processdate = formatDate( this.processdate, 'dd/MM/y hh:mm:ss a', 'en-US');
           
 
           if(transaction.status === this.global.STATUS_TRANSACTION_CANCEL){
