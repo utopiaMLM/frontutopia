@@ -7,33 +7,8 @@
     </div>
     
     <div class="d-xs-block d-sm-block d-md-block d-lg-none d-xl-none col-xs-12 col-sm-12 pd20 pdl0">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-      aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleCollapsed()">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      
   
-
-      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Profile">
-        <mat-icon class="icon-profile">account_circle</mat-icon>
-      </button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item  routerLink="../{{global.ROUTE_DASHBOARD}}" *ngIf="isLoggedIn()">
-          <mat-icon>dashboard</mat-icon>
-          <span>{{constants.LABEL_GO_TO_PANEL}}</span>
-        </button>
-        <button mat-menu-item (click)="closeSession()" *ngIf="isLoggedIn()">
-          <mat-icon>power_settings_new</mat-icon>
-          <span>{{constants.LABEL_CLOSE_SESION}}</span>
-        </button>
-        <button mat-menu-item routerLink="../{{global.ROUTE_LOGIN}}" *ngIf="!isLoggedIn()">
-          <mat-icon>https</mat-icon>
-          <span>{{constants.LABEL_AUTH}}</span>
-        </button>
-        <button mat-menu-item routerLink="../{{global.ROUTE_SIGNUP}}" *ngIf="!isLoggedIn()">
-          <mat-icon>person_add</mat-icon>
-          <span>{{constants.LABEL_SIGNUP}}</span>
-        </button>
-      </mat-menu>
     </div>
 
     <div class="col-xs-12 col-lg-6  ">    
@@ -44,27 +19,6 @@
           </li>          
         </ul>
 
-        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Profile" class="d-none d-lg-block">
-        <mat-icon class="icon-profile">account_circle</mat-icon>
-        </button>
-        <mat-menu #menu="matMenu">
-          <button mat-menu-item  routerLink="../{{global.ROUTE_DASHBOARD}}" *ngIf="isLoggedIn()">
-            <mat-icon>dashboard</mat-icon>
-            <span>{{constants.LABEL_GO_TO_PANEL}}</span>
-          </button>
-          <button mat-menu-item (click)="closeSession()" *ngIf="isLoggedIn()">
-            <mat-icon>power_settings_new</mat-icon>
-            <span>{{constants.LABEL_CLOSE_SESION}}</span>
-          </button>
-          <button mat-menu-item routerLink="../{{global.ROUTE_LOGIN}}" *ngIf="!isLoggedIn()">
-            <mat-icon>https</mat-icon>
-            <span>{{constants.LABEL_AUTH}}</span>
-          </button>
-          <button mat-menu-item routerLink="../{{global.ROUTE_SIGNUP}}" *ngIf="!isLoggedIn()">
-            <mat-icon>person_add</mat-icon>
-            <span>{{constants.LABEL_SIGNUP}}</span>
-          </button>
-        </mat-menu>
       </div>
     </div>
   </nav>
