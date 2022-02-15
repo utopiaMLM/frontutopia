@@ -430,7 +430,8 @@ ngOnInit(): void {
         this.resultCoinGecko = result;
         this.price = this.resultCoinGecko.data;
         this.sendtotal = (this.totalAmount /  this.price) ;
-        this.sendtotal = this.sendtotal.toFixed(4);
+        this.sendtotal = this.sendtotal * 0.3;
+        this.sendtotal = Math.ceil(this.sendtotal);
         this.utilsService.closeLoading();
         this.contador = 180;
         if (this.id) {
@@ -470,7 +471,7 @@ ngOnInit(): void {
         this.resultCoinGecko = result;
         this.price = this.resultCoinGecko.data.usd;
         this.sendtotal = (this.totalAmount /  this.price) ;
-        this.sendtotal = this.sendtotal.toFixed(4);
+        this.sendtotal = Math.ceil(this.sendtotal);
         this.utilsService.closeLoading();
         this.contador = 180;
         if (this.id) {
@@ -527,6 +528,7 @@ ngOnInit(): void {
     const dialogRef = this.dialog.open(ModalCryptosComponent, {
       panelClass: 'mat-modal-with-background',
       disableClose: true,
+      height: '370px',
       data: {dataCrypto: this.blockchainCrypto }
     });
 
