@@ -89,6 +89,8 @@ export class PaymentComponent implements OnInit, OnDestroy {
   tokenPrice = 0;
   totalAmount = 0;
   codeQR: any;
+  packageId: any;
+  userId: any;
 
 
   public paymentForm = new FormGroup({
@@ -124,7 +126,9 @@ export class PaymentComponent implements OnInit, OnDestroy {
     if (this.getTransactionNow()) {
 
       this.params = this.route.params.subscribe(params => {
+
         if (this.validateParams(params)) {
+
           this.commonsService.getProfile(this.profileId).subscribe(
             result => {
               this.resultProfile = result;
@@ -171,13 +175,14 @@ export class PaymentComponent implements OnInit, OnDestroy {
       this.amount = params.amount;
     }
 
-    /*if (params.purchaseId === undefined) {
-      this.isError =  true;  
-      this.msgError =  this.constants.LABEL_ERROR_PURCHASE_ID;
+    if (params.userId !== undefined && params.userId.trim() === '') {
+      this.isError = true;
+      this.msgError = 'El id del usuario es requerido';
       return false;
-    }else{
-      this.purchaseId = params.purchaseId;
-    }*/
+    } else {
+      this.userId = params.userId;
+      console.log(this.userId);
+    }
 
     if (params.buyerName !== undefined && params.buyerName.trim() === '') {
       this.isError = true;
@@ -195,9 +200,22 @@ export class PaymentComponent implements OnInit, OnDestroy {
       this.buyerEmail = params.buyerEmail;
     }
 
-    if (params.description !== undefined) {
+    if (params.packageId !== undefined && params.packageId.trim() === '') {
+      this.isError = true;
+      this.msgError = 'El id del paquete a comprar es requerido';
+      return false;
+    } else {
+      this.packageId = params.packageId;
+    }
+
+    if (params.description !== undefined && params.description.trim() === '') {
+      this.isError = true;
+      this.msgError = 'El nombre del paquete a comprar es requerido';
+      return false;
+    } else {
       this.description = params.description;
     }
+
     this.isError = false;
     return true;
 
@@ -217,6 +235,8 @@ export class PaymentComponent implements OnInit, OnDestroy {
       amount: this.totalAmount,
       description: this.description,
       cryptoSelected: this.selectedToken._id,
+      packageId: this.packageId,
+      userId: this.userId,
       blockchainSelected: this.selectedToken.blockchain[0],
       priceCryptoSelected: this.price,
       cryptoToSend: parseFloat(this.sendtotal),
@@ -292,7 +312,6 @@ export class PaymentComponent implements OnInit, OnDestroy {
           this.contadorT = this.transaction.timeOut;
           this.sendtotal = this.transaction.cryptoToSend;
           this.codeQR = this.transaction.wallet+"?amount="+this.transaction.cryptoToSend;
-          console.log("this.codeQR ", this.codeQR);
           this.symbol = this.transaction.symbol;
           this.imageToken = this.transaction.image;
           this.amount = this.transaction.amount;
