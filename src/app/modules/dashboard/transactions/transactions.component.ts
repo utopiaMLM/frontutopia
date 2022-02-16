@@ -101,7 +101,7 @@ export class TransactionsComponent implements OnInit {
 
 
   processStatus(status: number): any {
-    if(status === 1){
+    if(status === 4){
       this.exitosos = this.exitosos + 1;  
     }
     if(status === 5){
