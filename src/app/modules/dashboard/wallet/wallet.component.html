@@ -2,12 +2,35 @@
 <main class="main_content">
     <div class="container-fluid div-home">
       <div class="row" style="padding-top:45px;">
-        <div class="col-lg-4"></div>        
-        <div class="col-lg-4 text-center">        
-            <img src="../../../assets/tova2.png" class="img-fluid" style="width:50%"><br>
-            <p class="title_construction">{{constants.LABEL_IN_CONSTRUCTION}}.</p>
-        </div>
-        <div class="col-lg-4"></div>        
+        <div class="col-lg-12">
+          <mat-tab-group> 
+            <mat-tab label="Wallets por blockchains">
+                <div class="form-container col-xs-12 col-sm-12 col-sm-12 col-lg-8 div_blockchains">
+                  <mat-card class="example-card">
+                      <mat-card-content style="text-align:left">
+                        <span class="text-config">Configure las wallets donde recibirá los fondos automaticamente:</span> <br><br>
+                          <div class="div_block" *ngFor="let block of blockchains">    
+                            <div class="row">  
+                              <div class="div_block pda15 ">
+                                <span class="image-left widthimage"><img src="{{block.image}}"> {{block.name}}</span>
+                                <span class="image-left"><input type="text" class="form-control inputWidth" name="wallets[]" #wallets[]> 
+                                  <input class="form-control inputWidth" name="blocks[]" value="{{block._id}}" type="hidden" #blocks[]>
+                                  <input class="form-control inputWidth" name="nameblockchain[]" value="{{block.symbol}}" type="hidden" #nameblockchain[]>
+                                  <p #message[] style="color: #f44336; padding-top: 10px;">&nbsp;</p>
+                                </span>
+                              </div>    
+                            </div>                            
+                          </div>
+                        <div mat-dialog-actions style="clear:both" class="block">
+                            <button mat-raised-button color="primary" type="submit" (click)="save()">Guardar</button>
+                        </div>
+                    </mat-card-content>
+                  </mat-card>
+                </div>
+              </mat-tab>
+            </mat-tab-group>
+        </div>        
+       
       </div>
     </div>
   </main>

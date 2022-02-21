@@ -21,6 +21,7 @@ export interface Data {
   styleUrls: ['./configuration.component.css'],
   providers: [UtilsService, AuthLoginService, CommonsService]
 })
+
 export class ConfigurationComponent implements OnInit {
   public global: any;
   blockchains= new Array<BlockchainModel>();  

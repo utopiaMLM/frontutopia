@@ -1,3 +1,15 @@
 .mat-card-content{
   background: #fff !important;
 }
+.image-left{
+  float: left !important;
+  padding:10px !important;
+}
+
+.inputWidth{
+  width:420px !important;
+}
+
+.widthimage{
+  width:220px !important;
+}

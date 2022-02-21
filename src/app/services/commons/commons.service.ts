@@ -11,7 +11,7 @@ import {Transaction} from 'src/app/models/Transaction';
 import {ResultBlockchains} from 'src/app/models/ResultBlockchains';
 import {ResultBlockchainsUser} from 'src/app/models/ResultBlockchainsUser';
 import { ResultCrypto } from 'src/app/models/ResultCryptos';
-
+import { ResultWallets } from 'src/app/models/ResultWallets';
 
 @Injectable({
   providedIn: 'root'
@@ -29,8 +29,9 @@ export class CommonsService {
   private urlWSBLOCKAINS = global.URLBASE_API + '/commons/getBlockchains';
   private urlWSALLBLOCKAINS = global.URLBASE_API + '/commons/getAllBlockchains';
   private urlWSCRYPTOGECKO = global.URLBASE_API + '/commons/getCryptoCurrencyGecko';
-
   private urlWSCRYPTOTOP = global.URLBASE_API + '/commons/getPriceUtopia';
+  private urlWSAVEWALLETS = global.URLBASE_API + '/commons/saveWallets';
+  private urlWSALLWALLETS = global.URLBASE_API + '/commons/getAllWalletsUser';
 
   
  /** Cambiar a service blockchain*/
@@ -145,4 +146,17 @@ export class CommonsService {
     const data = {userId: profileId};
     return this.http.post<ResultCrypto>(this.urlWSGETCRYPTOBYPROFILEID, data);
   } 
+
+  /** Obtiene los blockchain de los usuarios */
+  public saveWallet(info:any) {    
+    const token = localStorage.getItem('token');
+    const data = {token, walletblockchains: info};
+    return this.http.post<ResultBlockchainsUser>(this.urlWSAVEWALLETS, data);
+  }
+
+  public getWalletsUser() {
+    const token = localStorage.getItem('token');
+    const data = {token};
+    return this.http.post<ResultWallets>(this.urlWSALLWALLETS, data);
+  }
 }
