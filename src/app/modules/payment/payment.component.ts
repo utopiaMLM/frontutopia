@@ -540,7 +540,7 @@ export class PaymentComponent implements OnInit, OnDestroy {
         this.resultCoinGecko = result;
         this.price = this.resultCoinGecko.data.usd;
         this.sendtotal = (this.totalAmount / this.price);
-        this.sendtotal = this.sendtotal + this.sendtotal*0.03;
+        this.sendtotal = this.sendtotal + this.sendtotal*0.05;
         this.sendtotal = Math.ceil(this.sendtotal);
         this.utilsService.closeLoading();
         this.contador = 60;
